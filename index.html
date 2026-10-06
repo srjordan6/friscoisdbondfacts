@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frisco ISD Bond Facts</title>
+<meta name="description" content="Frisco ISD's own numbers on debt, enrollment, and repairs, before the 2027 bond vote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F4F6; --paper:#FFFFFF; --ink:#16202A; --muted:#56636E;
+  --rule:#D3DAE0; --teal:#1E6B73; --brick:#9C3D2E; --ghost:#9AA6AF;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A21; --paper:#18232C; --ink:#E6ECF0; --muted:#A3AFB8;
+    --rule:#2C3A45; --teal:#5BB3BC; --brick:#E07A66; --ghost:#6B7882;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A21; --paper:#18232C; --ink:#E6ECF0; --muted:#A3AFB8;
+  --rule:#2C3A45; --teal:#5BB3BC; --brick:#E07A66; --ghost:#6B7882;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-variant-numeric:tabular-nums}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.prose{max-width:68ch}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.brand{font-weight:800;font-size:18px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+nav a{color:var(--muted);text-decoration:none;font-size:15px;margin-left:18px}
+nav a:hover{color:var(--ink)}
+@media (max-width:720px){nav{display:none}}
+
+.hero{padding:56px 0 24px}
+.hero h1{font-family:"Newsreader",Georgia,serif;font-weight:600;
+  font-size:clamp(34px,6vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;max-width:18ch}
+.hero p.lede{font-size:20px;color:var(--muted);max-width:56ch;margin:0}
+
+.chart{background:var(--paper);border:1px solid var(--rule);border-radius:6px;
+  padding:22px 22px 14px;margin:34px 0 10px;overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:620px;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--muted);margin:10px 0 0}
+.key{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px;border-radius:2px}
+.cap{font-size:14px;color:var(--muted);margin:6px 0 0}
+
+section{padding:52px 0;border-top:1px solid var(--rule)}
+section h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,38px);
+  line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;
+  margin:26px 0 8px;border-top:2px solid var(--ink)}
+.fact{padding:16px 18px 16px 0;border-bottom:1px solid var(--rule)}
+.fact b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.fact span{color:var(--muted);font-size:15px}
+.up{color:var(--brick)} .down{color:var(--teal)}
+.src{font-size:14px;color:var(--muted);margin-top:14px}
+
+table{border-collapse:collapse;width:100%;font-size:16px;margin:20px 0}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--muted);font-size:14px}
+td.n{text-align:right}
+.tablewrap{overflow-x:auto}
+
+.ask{background:var(--ink);color:var(--bg);border-radius:6px;padding:34px 28px;margin:10px 0}
+.ask h2{color:var(--bg)}
+.ask p{max-width:62ch}
+.ask ol{max-width:62ch;padding-left:22px}
+
+.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;
+  padding:12px 20px;border-radius:4px;margin:8px 10px 0 0}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+
+ol.sources{padding-left:20px;max-width:76ch}
+ol.sources li{margin:0 0 10px}
+
+footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color:var(--muted)}
+.disclose{border:1px solid var(--ink);color:var(--ink);display:inline-block;padding:8px 12px;font-weight:600;margin-bottom:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="#">Frisco ISD Bond Facts</a>
+  <nav aria-label="Sections">
+    <a href="#debt">The debt</a><a href="#students">Students</a><a href="#repairs">Repairs</a><a href="#committee">Committee</a><a href="#sources">Sources</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Frisco ISD's old bonds start paying off in 2034. A new bond can keep your tax rate from ever coming down.</h1>
+  <p class="lede">Every number on this site comes from the District's own budgets and bond filings. Read them, check them, and ask the District to show its math before the 2027 bond vote.</p>
+
+  <div class="chart" role="img" aria-label="Annual debt service on existing Frisco ISD bonds, about 195 million dollars a year through 2033, falling to 41 million dollars by 2042. A dashed line shows payments held flat if new debt fills the gap.">
+    <svg id="ds" viewBox="0 0 900 380" aria-hidden="true"></svg>
+    <div class="legend">
+      <span><i class="key" style="background:var(--brick)"></i>Payments on existing bonds, selected years</span>
+      <span><i class="key" style="background:transparent;border:2px dashed var(--ghost)"></i>If new debt fills the space (illustration, not a District projection)</span>
+    </div>
+  </div>
+  <p class="cap">Annual debt service in millions of dollars. Source: Frisco ISD Series 2026 Official Statement, Appendix A.</p>
+</div>
+
+<section id="debt">
+  <div class="prose">
+    <h2>The debt</h2>
+    <p>Your Frisco ISD tax bill has two parts. The Maintenance and Operations rate runs the schools. The Interest and Sinking rate pays only for bonds. As old bonds are paid off, the Interest and Sinking rate could fall.</p>
+    <p>The District has structured its existing payments to stay flat at about $195 million a year through 2033. After that, the payments drop. A new bond can be timed to fill that space. That is how a "no tax rate increase" bond works: your rate does not go up, but it may never go down either.</p>
+  </div>
+  <div class="facts">
+    <div class="fact"><b>$1.95B</b><span>bond debt outstanding</span></div>
+    <div class="fact"><b>$195M</b><span>paid each year through 2033</span></div>
+    <div class="fact"><b class="down">$41M</b><span>scheduled payment in 2042</span></div>
+    <div class="fact"><b>$32M</b><span>left unissued from the 2018 bond</span></div>
+  </div>
+  <p class="src">Source: Series 2026 Official Statement, Appendix A, Debt Service Requirements and Authorized But Unissued Bonds.</p>
+</section>
+
+<section id="students">
+  <div class="prose">
+    <h2>Fewer students, more debt</h2>
+    <p>The District's operating budget has been held nearly flat, but bond payments keep climbing while the number of students shrinks. Each remaining student now carries more debt.</p>
+  </div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>School year</th><th class="n">Debt service</th><th class="n">Cost per student</th><th class="n">Students, implied</th></tr></thead>
+    <tbody>
+      <tr><td>2023-24</td><td class="n">$176.3M</td><td class="n">$13,923</td><td class="n">about 67,760</td></tr>
+      <tr><td>2024-25</td><td class="n">$179.3M</td><td class="n">$14,424</td><td class="n">about 66,820</td></tr>
+      <tr><td>2025-26</td><td class="n">$198.4M</td><td class="n">$15,414</td><td class="n">about 64,120</td></tr>
+      <tr><td>2026-27</td><td class="n">$201.2M</td><td class="n">$15,789</td><td class="n">about 62,110</td></tr>
+      <tr><th>Change</th><th class="n up">up 14%</th><th class="n up">up 13%</th><th class="n down">down 8%</th></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="src">Source: Frisco ISD adopted budgets, All Funds summary, 2023-24 through 2026-27. Student counts are total budget divided by the District's published cost per student.</p>
+</section>
+
+<section id="repairs">
+  <div class="prose">
+    <h2>Repairs belong in the budget</h2>
+    <p>Routine upkeep should come from the operating budget, not decades of debt. Frisco ISD cut its maintenance budget for 2026-27 and sets aside almost nothing for capital repairs from operations. That leaves bonds as the default for roofs, air conditioning, and building systems.</p>
+  </div>
+  <div class="facts">
+    <div class="fact"><b class="up">down 5.8%</b><span>maintenance and operations spending, 2026-27</span></div>
+    <div class="fact"><b>$370K</b><span>capital outlay in a $752M operating budget</span></div>
+    <div class="fact"><b>$0</b><span>budgeted General Fund surplus, 2026-27</span></div>
+  </div>
+  <p class="src">Source: Frisco ISD 2026-27 adopted budget, General Fund summary.</p>
+</section>
+
+<section id="committee">
+  <div class="prose">
+    <h2>Who is writing the bond</h2>
+    <p>The 2027 Bond Committee has 100 members. Only 25 seats were open to residents who applied, and 99 people applied for them. The Board and District leadership chose 80 of the 100 members, including 20 District employees.</p>
+  </div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Chosen by</th><th class="n">Seats</th></tr></thead>
+    <tbody>
+      <tr><td>Board of Trustees, 5 each</td><td class="n">35</td></tr>
+      <tr><td>District leadership, from resident applications</td><td class="n">25</td></tr>
+      <tr><td>District leadership, District staff</td><td class="n">20</td></tr>
+      <tr><td>High school students, approved by principals</td><td class="n">12</td></tr>
+      <tr><td>PTA council, Frisco Education Foundation, Frisco Chamber</td><td class="n">8</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="src">Source: Frisco ISD Deputy Superintendent of Business and Operations, written response to a resident inquiry, October 6, 2026.</p>
+</section>
+
+<section>
+  <div class="ask">
+    <h2>One question for the District</h2>
+    <p>Before anyone votes, Frisco ISD should publish the projected Interest and Sinking tax rate, year by year, two ways:</p>
+    <ol><li>Without the 2027 bond</li><li>With the 2027 bond</li></ol>
+    <p>If the first line falls after 2034 and the second stays flat, the bond costs taxpayers real money compared to letting old debt pay off. Voters deserve to see both lines side by side.</p>
+  </div>
+</section>
+
+<section id="join">
+  <div class="prose">
+    <h2>Get involved</h2>
+    <p>This effort started with one Frisco resident reading the District's own documents. If these numbers concern you, get updates, share this page, and bring your questions to Board meetings during public comment.</p>
+    <a class="btn" href="mailto:info@friscoisdbondfacts.com?subject=Frisco%20ISD%20Bond%20Facts%20updates">Get email updates</a>
+    <a class="btn alt" href="https://www.friscoisd.org" rel="noopener">Frisco ISD Board meetings</a>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="prose">
+    <h2>Sources</h2>
+    <p>Check every figure yourself.</p>
+  </div>
+  <ol class="sources">
+    <li>Frisco Independent School District, Unlimited Tax Refunding Bonds, Series 2026, Official Statement dated April 15, 2026, Appendix A. Available free on the MSRB's EMMA system, <a href="https://emma.msrb.org/IssueView/Details/P2444051" rel="noopener">emma.msrb.org</a>.</li>
+    <li>Frisco ISD Adopted Budget, raw format files, fiscal years 2023-24, 2024-25, 2025-26, and 2026-27, All Funds and General Fund summaries.</li>
+    <li>Frisco ISD written response on 2027 Bond Committee appointments, October 6, 2026.</li>
+  </ol>
+</section>
+
+<footer>
+  <div class="disclose">Political advertising paid for by Stephen Jordan, Frisco, Texas.</div>
+  <p>Not affiliated with or endorsed by Frisco ISD. Figures are taken from public District documents listed above. Corrections are welcome and will be posted.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var data=[["2026",195.3],["2027",195.3],["2028",195.3],["2029",195.3],["2030",195.3],["2031",195.3],["2032",195.3],["2033",195.3],
+            ["2034",186.5],["2035",155.4],["2036",155.4],["2038",113.8],["2040",99.6],["2042",41.0]];
+  var svg=document.getElementById("ds"), ns="http://www.w3.org/2000/svg";
+  var W=900,H=380,L=56,R=16,T=20,B=40,max=220, n=data.length, bw=(W-L-R)/n;
+  function y(v){return T+(H-T-B)*(1-v/max)}
+  function el(t,a,txt){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;svg.appendChild(e);return e}
+  var css=getComputedStyle(document.documentElement);
+  var rule=css.getPropertyValue("--rule"),muted=css.getPropertyValue("--muted"),brick=css.getPropertyValue("--brick"),ghost=css.getPropertyValue("--ghost"),ink=css.getPropertyValue("--ink");
+  [0,50,100,150,200].forEach(function(v){
+    el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:rule,"stroke-width":1});
+    el("text",{x:L-10,y:y(v)+5,"text-anchor":"end","font-size":13,fill:muted},"$"+v+"M");
+  });
+  data.forEach(function(d,i){
+    var x=L+i*bw+bw*0.18,w=bw*0.64;
+    el("rect",{x:x,y:y(d[1]),width:w,height:(H-B)-y(d[1]),fill:brick,rx:2});
+    el("text",{x:x+w/2,y:H-B+20,"text-anchor":"middle","font-size":13,fill:muted},d[0]);
+    if(i===7||i>=9) el("text",{x:x+w/2,y:y(d[1])-7,"text-anchor":"middle","font-size":13,"font-weight":600,fill:ink},"$"+Math.round(d[1]));
+  });
+  var x0=L+8*bw, xe=W-R;
+  el("line",{x1:x0,x2:xe,y1:y(195.3),y2:y(195.3),stroke:ghost,"stroke-width":2.5,"stroke-dasharray":"7 6"});
+  el("text",{x:xe,y:y(195.3)-10,"text-anchor":"end","font-size":13,fill:muted},"Rate held flat?");
+})();
+</script>
+</body>
+</html>
