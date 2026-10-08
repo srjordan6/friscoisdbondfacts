@@ -86,6 +86,11 @@ ol.sources li{margin:0 0 10px}
 
 footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color:var(--muted)}
 .disclose{border:1px solid var(--ink);color:var(--ink);display:inline-block;padding:8px 12px;font-weight:600;margin-bottom:12px}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:28px 0 8px}
+.hl{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--brick);border-radius:6px;padding:20px 20px 16px}
+.hl b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(34px,5vw,48px);line-height:1;letter-spacing:-.02em;color:var(--brick)}
+.hl h3{font-size:18px;line-height:1.3;margin:10px 0 6px}
+.hl p{font-size:15px;color:var(--muted);margin:0}
 </style>
 </head>
 <body>
@@ -93,7 +98,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
 <header class="top">
   <a class="brand" href="#">Frisco ISD Bond Facts</a>
   <nav aria-label="Sections">
-    <a href="#debt">The debt</a><a href="#students">Students</a><a href="#repairs">Repairs</a><a href="#committee">Committee</a><a href="#sources">Sources</a>
+    <a href="#numbers">Numbers</a><a href="#debt">The debt</a><a href="#students">Students</a><a href="#repairs">Repairs</a><a href="#peers">Peers</a><a href="#committee">Committee</a><a href="#sources">Sources</a>
   </nav>
 </header>
 
@@ -110,6 +115,23 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
   </div>
   <p class="cap">Annual debt service in millions of dollars. Source: Frisco ISD Series 2026 Official Statement, Appendix A.</p>
 </div>
+
+<section id="numbers">
+  <div class="prose">
+    <h2>The numbers Frisco ISD should explain before asking for a bond</h2>
+    <p>Every figure below comes from the Texas Education Agency's own public data for Frisco and 15 comparison districts.</p>
+  </div>
+  <div class="big">
+    <div class="hl"><b>2 &rarr; 10</b><h3>Deputy and assistant superintendents</h3><p>Frisco had 2 in 2015-16 and has 10 today, while enrollment grew 18%. Plano has 5, Allen 4, Prosper 2.</p></div>
+    <div class="hl"><b>+35%</b><h3>Central administration spending per student, after inflation</h3><p>2015-16 to 2023-24. That is about twice the rate of comparable districts (+17%).</p></div>
+    <div class="hl"><b>+287</b><h3>More non-teaching staff, with 3,100 fewer students</h3><p>Since 2021-22, enrollment fell and teaching positions fell with it (down 193), but non-teaching staff grew 8.7%.</p></div>
+    <div class="hl"><b>$370,466</b><h3>Superintendent base pay, highest in the region</h3><p>Plano $355,135, Prosper $350,000, Lewisville $344,748, Allen $340,561, McKinney $305,000 (2025-26).</p></div>
+    <div class="hl"><b>27&cent;</b><h3>Debt rate, frozen since 2018</h3><p>Old bonds start paying off after 2033. A new bond can keep the rate from ever coming down.</p></div>
+    <div class="hl"><b>$10.7M</b><h3>Sent to other districts in 2023-24</h3><p>Up from $0.2M in 2015-16. These payments between districts typically include state recapture.</p></div>
+  </div>
+  <p class="src">Sources: TEA PEIMS Staff Salaries and FTE Counts, 2015-16 to 2025-26; TEA PEIMS Actual Financial Data, FY2016 to FY2024 (function 41, general administration; function 91, payments between districts), adjusted to 2025-26 dollars using CPI-U; TEA PEIMS fall enrollment. Comparison districts: Plano, Allen, McKinney, Prosper, Lewisville, Conroe, Aldine, North East, Austin, Fort Worth, Arlington, Fort Bend, Garland, Klein, El Paso.</p>
+  <div class="prose"><p><strong>In fairness:</strong> Frisco's operating cost per student is the lowest of the 16 districts, and it carries less debt per student than its neighbors. The question is not whether Frisco is careless with money. It is why leadership and overhead kept growing after enrollment stopped, and why the debt rate never comes down.</p></div>
+</section>
 
 <section id="debt">
   <div class="prose">
@@ -133,17 +155,22 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
   </div>
   <div class="tablewrap">
   <table>
-    <thead><tr><th>School year</th><th class="n">Debt service</th><th class="n">Cost per student</th><th class="n">Students, implied</th></tr></thead>
+    <thead><tr><th>School year</th><th class="n">Debt service</th><th class="n">Cost per student</th></tr></thead>
     <tbody>
-      <tr><td>2023-24</td><td class="n">$176.3M</td><td class="n">$13,923</td><td class="n">about 67,760</td></tr>
-      <tr><td>2024-25</td><td class="n">$179.3M</td><td class="n">$14,424</td><td class="n">about 66,820</td></tr>
-      <tr><td>2025-26</td><td class="n">$198.4M</td><td class="n">$15,414</td><td class="n">about 64,120</td></tr>
-      <tr><td>2026-27</td><td class="n">$201.2M</td><td class="n">$15,789</td><td class="n">about 62,110</td></tr>
-      <tr><th>Change</th><th class="n up">up 14%</th><th class="n up">up 13%</th><th class="n down">down 8%</th></tr>
+      <tr><td>2023-24</td><td class="n">$176.3M</td><td class="n">$13,923</td></tr>
+      <tr><td>2024-25</td><td class="n">$179.3M</td><td class="n">$14,424</td></tr>
+      <tr><td>2025-26</td><td class="n">$198.4M</td><td class="n">$15,414</td></tr>
+      <tr><td>2026-27</td><td class="n">$201.2M</td><td class="n">$15,789</td></tr>
+      <tr><th>Change</th><th class="n up">up 14%</th><th class="n up">up 13%</th></tr>
     </tbody>
   </table>
   </div>
-  <p class="src">Source: Frisco ISD adopted budgets, All Funds summary, 2023-24 through 2026-27. Student counts are total budget divided by the District's published cost per student.</p>
+  <div class="facts">
+    <div class="fact"><b>65,825</b><span>students, fall 2021</span></div>
+    <div class="fact"><b>62,713</b><span>students, 2026</span></div>
+    <div class="fact"><b class="down">down 4.7%</b><span>enrollment change</span></div>
+  </div>
+  <p class="src">Sources: Frisco ISD adopted budgets, All Funds summary, 2023-24 through 2026-27. Enrollment: NCES Digest of Education Statistics, Table 215.30 (fall 2021), and state enrollment data via the Texas Tribune Schools Explorer (2026).</p>
 </section>
 
 <section id="repairs">
@@ -157,6 +184,29 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
     <div class="fact"><b>$0</b><span>budgeted General Fund surplus, 2026-27</span></div>
   </div>
   <p class="src">Source: Frisco ISD 2026-27 adopted budget, General Fund summary.</p>
+</section>
+
+<section id="peers">
+  <div class="prose">
+    <h2>How Frisco compares</h2>
+    <p>Frisco ISD has held its debt rate at exactly 27 cents per $100 since 2018. Districts its size show that rate can come down. Fort Worth ISD cut its debt rate from 27.55 cents to 24.22 cents for 2025-26.</p>
+  </div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>District</th><th class="n">Students (fall 2021)</th><th class="n">2025-26 total rate</th><th class="n">Debt (I&amp;S) rate</th></tr></thead>
+    <tbody>
+      <tr><th>Frisco ISD</th><th class="n">65,825</th><th class="n">$1.0194</th><th class="n">$0.2700</th></tr>
+      <tr><td>Conroe ISD</td><td class="n">67,761</td><td class="n">$0.9496</td><td class="n">$0.2800</td></tr>
+      <tr><td>Aldine ISD</td><td class="n">61,633</td><td class="n">$1.0340</td><td class="n">$0.3025</td></tr>
+      <tr><td>North East ISD</td><td class="n">59,830</td><td class="n">$0.9822</td><td class="n">$0.3000</td></tr>
+      <tr><td>Fort Worth ISD</td><td class="n">74,850</td><td class="n">$1.0291</td><td class="n down">$0.2422</td></tr>
+      <tr><td>Klein ISD</td><td class="n">53,294</td><td class="n">$1.0119</td><td class="n">not listed</td></tr>
+      <tr><td>Fort Bend ISD</td><td class="n">77,545</td><td class="n">$1.0569</td><td class="n">not listed</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="prose"><p>A flat rate is not a flat bill. Frisco ISD reports the average home value rose from $551,246 to $565,084 for 2026, so the unchanged rate raised that homeowner's school tax bill by $141.</p></div>
+  <p class="src">Sources: NCES Table 215.30 (enrollment); adopted 2025-26 tax rates published by each district or Community Impact; Fort Worth ISD adopted tax rate history; Frisco ISD 2026 tax rate announcement. Fort Bend's rate includes a temporary 7 cent disaster increase.</p>
 </section>
 
 <section id="committee">
@@ -206,6 +256,9 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
     <li>Frisco Independent School District, Unlimited Tax Refunding Bonds, Series 2026, Official Statement dated April 15, 2026, Appendix A. Available free on the MSRB's EMMA system, <a href="https://emma.msrb.org/IssueView/Details/P2444051" rel="noopener">emma.msrb.org</a>.</li>
     <li>Frisco ISD Adopted Budget, raw format files, fiscal years 2023-24, 2024-25, 2025-26, and 2026-27, All Funds and General Fund summaries.</li>
     <li>Frisco ISD written response on 2027 Bond Committee appointments, October 6, 2026.</li>
+    <li>National Center for Education Statistics, Digest of Education Statistics 2022, Table 215.30, enrollment of the 120 largest school districts, fall 2021.</li>
+    <li>Texas Education Agency, PEIMS Standard Reports: Staff Salaries and FTE Counts and Student Enrollment, 2015-16 to 2025-26; PEIMS Actual Financial Data, FY2016 to FY2024.</li>
+    <li>Adopted 2025-26 tax rates for Frisco, Conroe, Aldine, North East, Fort Worth, Klein, and Fort Bend ISDs, as published by each district or by Community Impact.</li>
   </ol>
 </section>
 
