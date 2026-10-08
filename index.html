@@ -98,7 +98,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
 <header class="top">
   <a class="brand" href="#">Frisco ISD Bond Facts</a>
   <nav aria-label="Sections">
-    <a href="#numbers">Numbers</a><a href="#debt">The debt</a><a href="#students">Students</a><a href="#repairs">Repairs</a><a href="#peers">Peers</a><a href="#committee">Committee</a><a href="#sources">Sources</a>
+    <a href="#numbers">Numbers</a><a href="#debt">The debt</a><a href="#students">Students</a><a href="#repairs">Repairs</a><a href="#peers">Peers</a><a href="#committee">Committee</a><a href="#data">Data</a><a href="#sources">Sources</a>
   </nav>
 </header>
 
@@ -246,6 +246,15 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
   </div>
 </section>
 
+<section id="data">
+  <div class="prose">
+    <h2>Download the data</h2>
+    <p>Get the full spreadsheet: Frisco ISD and 15 comparison districts, 2015-16 to 2025-26, with 24 measures covering enrollment, demographics, staffing, superintendent and teacher pay, and actual spending by category. Each sheet includes the peer median, the regional median, and Frisco's rank, calculated with live formulas so you can check or change anything.</p>
+    <button class="btn" id="dl" type="button">Download spreadsheet (.xlsx)</button>
+    <p class="src" id="dlmsg">All figures come from Texas Education Agency public files. Dollar figures marked 2026 $ are adjusted for inflation.</p>
+  </div>
+</section>
+
 <section id="sources">
   <div class="prose">
     <h2>Sources</h2>
@@ -268,6 +277,39 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
 </div>
 
 <script>
+(function(){
+  var btn=document.getElementById('dl'),msg=document.getElementById('dlmsg');
+  function load(src){return new Promise(function(ok,bad){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=bad;document.head.appendChild(s);});}
+  function col(n){var s='';n++;while(n>0){var m=(n-1)%26;s=String.fromCharCode(65+m)+s;n=Math.floor((n-1)/26);}return s;}
+  function clean(n,used){var s=n.replace(/[\[\]:*?\/\\$%,()&]/g,'').replace(/\s+/g,' ').trim().slice(0,31);var b=s,i=2;while(used[s]){s=b.slice(0,28)+' '+i++;}used[s]=1;return s;}
+  function srcFor(n,S){if(n==='Enrollment')return S.Enrollment;if(n.charAt(0)==='%')return S['%'];if(/2026 \$|operating|\$M/i.test(n)&&!/pay/i.test(n))return S.fin;return S.staff;}
+  function build(){
+    var D=window.FISD_DATA,XL=window.XLSX,wb=XL.utils.book_new(),used={};
+    var readme=[['Frisco ISD Bond Facts: 10 year peer comparison'],['Data as of '+D.asof+'. Source files: Texas Education Agency PEIMS Student Enrollment, PEIMS Staff Salaries and FTE Counts, and PEIMS Actual Financial Data (FY2016 to FY2024).'],['School years are labeled by the fall to spring span, for example 2025-26.'],['Dollar figures marked 2026 $ are adjusted for inflation using CPI-U (July to June average).'],['Peer median excludes Frisco. Regional median uses Plano, Allen, McKinney, Prosper, and Lewisville. Rank 1 = highest value of 16.'],['Operating spending = all funds, objects 6100 to 6400, functions 11 to 61. Payments between districts (function 91) typically include state recapture.'],['Staff role codes changed in recent years, so title level counts can shift from recoding. Broad totals are more reliable.'],['Source: friscoisdbondfacts.com. Political advertising paid for by Stephen Jordan.']];
+    XL.utils.book_append_sheet(wb,XL.utils.aoa_to_sheet(readme),'README');
+    D.m.forEach(function(m){
+      var rows=[[m.n],['Source: '+srcFor(m.n,D.src)],[],['District','County district no.','Group'].concat(m.y.map(function(y){return (y-1)+'-'+String(y).slice(2);}))];
+      D.d.forEach(function(d,i){rows.push([d[1],d[0],D.groups[i]].concat(m.v[i]));});
+      rows.push(['Peer median (15)']);rows.push(['Regional median (5)']);rows.push(['Frisco rank (1 = highest)']);
+      var ws=XL.utils.aoa_to_sheet(rows),first=5,last=first+D.d.length-1;
+      m.y.forEach(function(y,j){var c=col(3+j);
+        ws[c+(last+1)]={t:'n',f:'MEDIAN('+c+(first+1)+':'+c+last+')'};
+        ws[c+(last+2)]={t:'n',f:'MEDIAN('+c+(first+1)+':'+c+(first+5)+')'};
+        ws[c+(last+3)]={t:'n',f:'RANK('+c+first+','+c+first+':'+c+last+',0)'};
+      });
+      ws['!ref']='A1:'+col(2+m.y.length)+(last+3);
+      ws['!cols']=[{wch:22},{wch:12},{wch:10}].concat(m.y.map(function(){return {wch:11};}));
+      ws['!freeze']={xSplit:1,ySplit:4};
+      XL.utils.book_append_sheet(wb,ws,clean(m.n,used));
+    });
+    XL.writeFile(wb,'Frisco_ISD_10yr_Peer_Data.xlsx');
+  }
+  if(btn)btn.addEventListener('click',function(){
+    btn.disabled=true;btn.textContent='Preparing...';
+    var p=window.XLSX?Promise.resolve():load('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
+    p.then(function(){return window.FISD_DATA?null:load('data/fisd-data.js');}).then(build).then(function(){btn.textContent='Download spreadsheet (.xlsx)';btn.disabled=false;}).catch(function(){btn.textContent='Download spreadsheet (.xlsx)';btn.disabled=false;msg.textContent='Download failed. Please try again or email info@friscoisdbondfacts.com.';});
+  });
+})();
 (function(){
   var data=[["2026",195.3],["2027",195.3],["2028",195.3],["2029",195.3],["2030",195.3],["2031",195.3],["2032",195.3],["2033",195.3],
             ["2034",186.5],["2035",155.4],["2036",155.4],["2038",113.8],["2040",99.6],["2042",41.0]];
