@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>District Documents | Frisco ISD Bond Facts</title>
+<meta name="description" content="Frisco ISD board documents on the budget, debt, and bonds, archived for the public.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F4F6; --paper:#FFFFFF; --ink:#16202A; --muted:#56636E;
+  --rule:#D3DAE0; --teal:#1E6B73; --brick:#9C3D2E; --ghost:#9AA6AF;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A21; --paper:#18232C; --ink:#E6ECF0; --muted:#A3AFB8;
+    --rule:#2C3A45; --teal:#5BB3BC; --brick:#E07A66; --ghost:#6B7882;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A21; --paper:#18232C; --ink:#E6ECF0; --muted:#A3AFB8;
+  --rule:#2C3A45; --teal:#5BB3BC; --brick:#E07A66; --ghost:#6B7882;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-variant-numeric:tabular-nums}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.prose{max-width:68ch}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.brand{font-weight:800;font-size:18px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+nav a{color:var(--muted);text-decoration:none;font-size:15px;margin-left:18px}
+nav a:hover{color:var(--ink)}
+@media (max-width:720px){nav{display:none}}
+
+.hero{padding:56px 0 24px}
+.hero h1{font-family:"Newsreader",Georgia,serif;font-weight:600;
+  font-size:clamp(34px,6vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;max-width:18ch}
+.hero p.lede{font-size:20px;color:var(--muted);max-width:56ch;margin:0}
+
+.chart{background:var(--paper);border:1px solid var(--rule);border-radius:6px;
+  padding:22px 22px 14px;margin:34px 0 10px;overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:620px;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--muted);margin:10px 0 0}
+.key{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px;border-radius:2px}
+.cap{font-size:14px;color:var(--muted);margin:6px 0 0}
+
+section{padding:52px 0;border-top:1px solid var(--rule)}
+section h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,38px);
+  line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;
+  margin:26px 0 8px;border-top:2px solid var(--ink)}
+.fact{padding:16px 18px 16px 0;border-bottom:1px solid var(--rule)}
+.fact b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.fact span{color:var(--muted);font-size:15px}
+.up{color:var(--brick)} .down{color:var(--teal)}
+.src{font-size:14px;color:var(--muted);margin-top:14px}
+
+table{border-collapse:collapse;width:100%;font-size:16px;margin:20px 0}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--muted);font-size:14px}
+td.n{text-align:right}
+.tablewrap{overflow-x:auto}
+
+.ask{background:var(--ink);color:var(--bg);border-radius:6px;padding:34px 28px;margin:10px 0}
+.ask h2{color:var(--bg)}
+.ask p{max-width:62ch}
+.ask ol{max-width:62ch;padding-left:22px}
+
+.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;
+  padding:12px 20px;border-radius:4px;margin:8px 10px 0 0}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+
+ol.sources{padding-left:20px;max-width:76ch}
+ol.sources li{margin:0 0 10px}
+
+footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color:var(--muted)}
+.disclose{border:1px solid var(--ink);color:var(--ink);display:inline-block;padding:8px 12px;font-weight:600;margin-bottom:12px}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:28px 0 8px}
+.hl{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--brick);border-radius:6px;padding:20px 20px 16px}
+.hl b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(34px,5vw,48px);line-height:1;letter-spacing:-.02em;color:var(--brick)}
+.hl h3{font-size:18px;line-height:1.3;margin:10px 0 6px}
+.hl p{font-size:15px;color:var(--muted);margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="/">Frisco ISD Bond Facts</a>
+  <nav aria-label="Sections"><a href="/#numbers">Numbers</a><a href="/#debt">The debt</a><a href="/#peers">Peers</a><a href="/#data">Data</a><a href="/documents.html">Documents</a></nav>
+</header>
+<section>
+  <div class="prose">
+    <h2>District documents</h2>
+    <p>These are Frisco ISD's own board meeting documents on the budget, debt, taxes, and purchasing, copied from the District's public BoardBook site so they stay available. Each row links to our copy and to the original on BoardBook.</p>
+    <p><strong>Start here:</strong> the <a href="docs/2026-05-07_2026-27-budget-workshop-3-financial-benchmarking-debt-capacity.pdf">May 7, 2026 Budget Workshop #3</a> (the District's own peer benchmarking and debt capacity chart) and the <a href="docs/2026-03-09_bond-program-and-debt-presentation-samco-capital.pdf">March 9, 2026 bond and debt presentation</a>.</p>
+  </div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Meeting date</th><th>Meeting</th><th>Document</th><th class="n">Size</th><th>Original</th></tr></thead>
+    <tbody>
+<tr><td>2026-09-21</td><td>Regular Meeting</td><td><a href="docs/2026-09-21_2027-budget-amendment-period-2.pdf">2027 Budget Amendment - Period 2</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=14415972" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-09-21</td><td>Regular Meeting</td><td><a href="docs/2026-09-21_2026-27-purchases-over-100-000-august-2026.pdf">27 Purchases over $100,000 - August 2026</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=14415992" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-09-21</td><td>Regular Meeting</td><td><a href="docs/2026-09-21_2026-first-financial-integrity-rating.pdf">2026 FIRST Financial Integrity Rating</a></td><td class="n">1.0 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=14415216" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-08-17</td><td>Regular Meeting</td><td><a href="docs/2026-08-17_pasa-demographic-study-statement-of-work.pdf">PASA Demographic Study Statement of Work</a></td><td class="n">0.2 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716809" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-08-17</td><td>Regular Meeting</td><td><a href="docs/2026-08-17_adoption-of-tax-rate-worksheet.pdf">Adoption of Tax Rate Worksheet</a></td><td class="n">0.0 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716795" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-08-17</td><td>Regular Meeting</td><td><a href="docs/2026-08-17_2026-tax-rate-adoption.pdf">2026 Tax Rate Adoption</a></td><td class="n">1.9 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716818" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-08-17</td><td>Regular Meeting</td><td><a href="docs/2026-08-17_12-purchases-over-100-000-june-2026.pdf">Purchases over $100,000 - June 2026</a></td><td class="n">0.2 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716790" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-08-17</td><td>Regular Meeting</td><td><a href="docs/2026-08-17_1-purchases-over-100-000-july-2026.pdf">Purchases over $100,000 - July 2026</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716791" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-08-03</td><td>Instructional Technology &amp; Facility Planning Board Workshop</td><td><a href="docs/2026-08-03_instructional-technology-and-facility-planning-workshop.pdf">Instructional Technology and Facility Planning Workshop</a></td><td class="n">8.3 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716770" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-06-15</td><td>Special Board Meeting</td><td><a href="docs/2026-06-15_2026-27-final-proposed-budget.pdf">27 Final Proposed Budget</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716674" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-06-15</td><td>Special Board Meeting</td><td><a href="docs/2026-06-15_2026-27-compensation-plan.pdf">27 Compensation Plan</a></td><td class="n">1.8 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716676" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-06-08</td><td>Regular Meeting</td><td><a href="docs/2026-06-08_11-purchases-over-100-000-may-2026.pdf">Purchases over $100,000 - May 2026</a></td><td class="n">0.2 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716603" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-05-11</td><td>Regular Meeting</td><td><a href="docs/2026-05-11_25-26-community-survey-frisco-board-presentation.pdf">26 Community Survey - Frisco Board Presentation</a></td><td class="n">0.5 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716578" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-05-11</td><td>Regular Meeting</td><td><a href="docs/2026-05-11_10-purchases-over-100-000-april-2026.pdf">Purchases over $100,000 - April 2026</a></td><td class="n">0.2 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716523" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-05-07</td><td>Board Budget Workshop</td><td><a href="docs/2026-05-07_2026-27-budget-workshop-3-financial-benchmarking-debt-capacity.pdf">27 Budget Workshop #3 (Financial Benchmarking, Debt Capacity)</a></td><td class="n">4.3 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716566" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-04-13</td><td>Regular Meeting</td><td><a href="docs/2026-04-13_iron-horse-aquatics-partnership-and-mou-2025-2029.pdf">Iron Horse Aquatics Partnership and MOU, 2025-2029</a></td><td class="n">1.5 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716443" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-04-13</td><td>Regular Meeting</td><td><a href="docs/2026-04-13_fy-2026-q3-budget-update.pdf">FY 2026 Q3 Budget Update</a></td><td class="n">0.8 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716479" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-04-13</td><td>Regular Meeting</td><td><a href="docs/2026-04-13_9-purchases-over-100-000-march-2026.pdf">Purchases over $100,000 - March 2026</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716453" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-04-02</td><td>Board Budget Workshop</td><td><a href="docs/2026-04-02_vpac-operations-and-launch-overview.pdf">VPAC Operations and Launch Overview</a></td><td class="n">6.0 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11695440" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-04-02</td><td>Board Budget Workshop</td><td><a href="docs/2026-04-02_2026-27-budget-workshop-2-enrollment-staley-closure-salary-benchmarkin.pdf">27 Budget Workshop #2 (Enrollment, Staley Closure, Salary Benchmarking)</a></td><td class="n">4.4 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11694488" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-03-09</td><td>Regular Meeting</td><td><a href="docs/2026-03-09_bond-program-and-debt-presentation-samco-capital.pdf">Bond Program and Debt Presentation (Samco Capital)</a></td><td class="n">0.3 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716431" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-03-09</td><td>Regular Meeting</td><td><a href="docs/2026-03-09_bond-parameter-order-2026.pdf">Bond Parameter Order 2026</a></td><td class="n">0.4 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716395" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-03-09</td><td>Regular Meeting</td><td><a href="docs/2026-03-09_agenda-item-outstanding-debt-and-bond-parameter-order.pdf">Agenda Item: Outstanding Debt and Bond Parameter Order</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716393" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-03-09</td><td>Regular Meeting</td><td><a href="docs/2026-03-09_8-purchases-over-100-000-february-2026.pdf">Purchases over $100,000 - February 2026</a></td><td class="n">0.2 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716403" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-02-09</td><td>Regular Meeting</td><td><a href="docs/2026-02-09_7-purchases-over-100-000-january-2026.pdf">Purchases over $100,000 - January 2026</a></td><td class="n">0.2 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716303" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-01-20</td><td>Budget and Sustainability Plan Workshop</td><td><a href="docs/2026-01-20_2026-27-budget-workshop-1.pdf">27 Budget Workshop #1</a></td><td class="n">1.9 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716490" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-01-12</td><td>Regular Meeting</td><td><a href="docs/2026-01-12_fy-2026-q2-budget-update.pdf">FY 2026 Q2 Budget Update</a></td><td class="n">0.3 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716275" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2026-01-12</td><td>Regular Meeting</td><td><a href="docs/2026-01-12_3-purchases-over-100-000-december-2025.pdf">Purchases over $100,000 - December 2025</a></td><td class="n">0.2 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716274" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2025-12-15</td><td>Regular Meeting</td><td><a href="docs/2025-12-15_3-purchases-over-100-000-november-2025.pdf">Purchases over $100,000 - November 2025</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716225" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2025-11-17</td><td>Regular Meeting</td><td><a href="docs/2025-11-17_tirz-action-sheet.pdf">TIRZ Action Sheet</a></td><td class="n">0.0 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716173" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2025-11-17</td><td>Regular Meeting</td><td><a href="docs/2025-11-17_chapter-49-recapture-action-sheet.pdf">Chapter 49 (Recapture) Action Sheet</a></td><td class="n">0.4 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716126" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2025-11-17</td><td>Regular Meeting</td><td><a href="docs/2025-11-17_annual-financial-reports-fy2025.pdf">Annual Financial Reports (FY2025)</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716153" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2025-11-17</td><td>Regular Meeting</td><td><a href="docs/2025-11-17_3-purchases-over-100-000-october-2025.pdf">Purchases over $100,000 - October 2025</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716091" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2025-10-20</td><td>Regular Meeting</td><td><a href="docs/2025-10-20_staley-middle-school-pre-vote-presentation.pdf">Staley Middle School Pre-Vote Presentation</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716071" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2025-10-20</td><td>Regular Meeting</td><td><a href="docs/2025-10-20_staley-middle-school-post-vote-presentation.pdf">Staley Middle School Post-Vote Presentation</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716075" rel="noopener">BoardBook</a></td></tr>
+<tr><td>2025-10-20</td><td>Regular Meeting</td><td><a href="docs/2025-10-20_purchases-over-100-000-september-2025-1.pdf">Purchases over $100,000 - September 2025</a></td><td class="n">0.1 MB</td><td><a href="https://meetings.boardbook.org/Documents/FileViewerOrPublic/2014?file=11716049" rel="noopener">BoardBook</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="src">Source: Frisco ISD Board of Trustees meeting materials, meetings.boardbook.org (organization 2014). Documents are unaltered copies of public records.</p>
+</section>
+<footer>
+  <div class="disclose">Political advertising paid for by Stephen Jordan, Frisco, Texas.</div>
+</footer>
+</div>
+</body>
+</html>
