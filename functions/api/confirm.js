@@ -32,7 +32,8 @@ export async function onRequestPost({ request, env }) {
       return reply({ ok: false, error: "This link has expired or was already used. Please sign up again to get a new one." }, 410);
     }
     await env.DB.prepare(
-      "UPDATE signups SET confirmed_at = datetime('now'), unsubscribed_at = NULL, token_hash = NULL WHERE id = ?1"
+      "UPDATE signups SET confirmed_at = datetime('now'), unsubscribed_at = NULL, token_hash = NULL, " +
+      "unsub_token = COALESCE(unsub_token, lower(hex(randomblob(24)))) WHERE id = ?1"
     ).bind(row.id).run();
     return reply({ ok: true, first_name: row.first_name || "" });
   } catch (e) {

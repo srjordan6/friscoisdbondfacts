@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unsubscribe | Frisco ISD Bond Facts</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/legal.css">
+<style>
+.cbtn{font:700 17px "Manrope","DM Sans",system-ui,sans-serif;background:#101A27;color:#F2F1EC;border:0;border-radius:99px;padding:14px 28px;cursor:pointer;margin:8px 0 18px}
+.cbtn:disabled{opacity:.6;cursor:default}
+.cmsg{font-size:18px;line-height:1.5;min-height:1.5em}
+.cmsg.ok{color:#2C6E85;font-weight:700}
+.cmsg.err{color:#AE3E26;font-weight:700}
+</style>
+</head>
+<body>
+<!--email_off-->
+<div class="wrap">
+<header><a class="brand" href="/">Frisco ISD Bond Facts</a><nav><a href="/">Home</a><a href="/documents">Documents</a></nav></header>
+<main>
+<h1>Unsubscribe</h1>
+<p id="intro">Tap the button to stop getting Frisco ISD Bond Facts updates. You will not get any more emails from this list.</p>
+<button id="go" class="cbtn" type="button">Unsubscribe me</button>
+<p id="msg" class="cmsg" role="status" aria-live="polite"></p>
+<p id="next" hidden>Changed your mind? You can <a href="/#join">sign up again</a> anytime.</p>
+</main>
+<footer>
+  <p class="disclose">Political advertising paid for by Stephen Jordan, Frisco, Texas.</p>
+  <p class="legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclaimer">Disclaimer</a></p>
+</footer>
+</div>
+<script>
+(function(){
+  var token=(location.hash||'').slice(1).toLowerCase(), go=document.getElementById('go'), msg=document.getElementById('msg'),
+      intro=document.getElementById('intro'), next=document.getElementById('next');
+  if(token && history.replaceState) history.replaceState(null,'',location.pathname);
+  function done(text,ok){msg.textContent=text;msg.className='cmsg '+(ok?'ok':'err');next.hidden=false}
+  if(!/^[a-f0-9]{48}$/.test(token)){
+    go.hidden=true; intro.textContent='';
+    msg.className='cmsg err';
+    msg.innerHTML='This unsubscribe link is incomplete. Please use the link from your email again, or email <a href="mailto:info@friscoisdbondfacts.com?subject=Unsubscribe">info@friscoisdbondfacts.com</a> and we will remove you.';
+    return;
+  }
+  go.addEventListener('click',function(){
+    go.disabled=true; msg.className='cmsg'; msg.textContent='Working...';
+    fetch('/api/unsubscribe',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({token:token})})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        go.hidden=true; intro.textContent='';
+        if(d.ok) done('You are unsubscribed. You will not get any more updates from this list.',true);
+        else done(d.error||'Something went wrong. Please try again.',false);
+      })
+      .catch(function(){go.disabled=false;msg.className='cmsg err';msg.textContent='Could not reach the server. Please try again.'});
+  });
+})();
+</script>
+<!--/email_off-->
+</body>
+</html>
