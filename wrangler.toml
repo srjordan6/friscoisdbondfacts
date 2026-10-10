@@ -2,6 +2,9 @@ name = "friscoisdbondfacts-site"
 pages_build_output_dir = "."
 compatibility_date = "2026-01-01"
 
+[vars]
+CF_ACCOUNT_ID = "2db97ad8218dd8a17d22368d32e41161"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "friscoisdbondfacts-signups"

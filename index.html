@@ -539,8 +539,10 @@ button.btn:disabled{opacity:.6;cursor:default}
   <div class="cta-grid">
     <div class="cta-card">
       <h3>1. Get updates</h3>
-      <p>One email when new District documents or bond numbers are posted. Nothing else, and we never sell your address. <a href="/privacy">Privacy</a></p>
+      <p>One email when new District documents or bond numbers are posted. Nothing else, and we never sell your address. We'll email you a link to confirm. <a href="/privacy">Privacy</a></p>
       <form id="signup" class="signup" novalidate>
+        <label class="sr" for="su-name">First name</label>
+        <input id="su-name" name="first_name" type="text" autocomplete="given-name" placeholder="First name" maxlength="40" required>
         <label class="sr" for="su-email">Email address</label>
         <input id="su-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         <label class="sr" for="su-zip">ZIP code (optional)</label>
@@ -761,7 +763,8 @@ button.btn:disabled{opacity:.6;cursor:default}
   }
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    var email=f.email.value.trim();
+    var email=f.email.value.trim(), first=f.first_name.value.trim();
+    if(!first){msg.textContent='Please enter your first name.';f.first_name.focus();return;}
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.textContent='Please enter a valid email address.';f.email.focus();return;}
     sb.disabled=true; msg.textContent='Saving...';
     // Wait briefly for the Turnstile token if the visitor submitted before it was ready.
@@ -774,10 +777,10 @@ button.btn:disabled{opacity:.6;cursor:default}
   });
   function send(){
     var email=f.email.value.trim(); msg.textContent='Saving...';
-    fetch('/api/signup',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email,zip:f.zip.value.trim(),website:f.website.value,source:f.source.value,turnstile:tsToken})})
+    fetch('/api/signup',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({first_name:f.first_name.value.trim(),email:email,zip:f.zip.value.trim(),website:f.website.value,source:f.source.value,turnstile:tsToken})})
       .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.ok,j:j}})})
       .then(function(x){
-        if(x.ok){f.reset();msg.textContent='Thank you. You are on the list.';}
+        if(x.ok){f.reset();msg.textContent=(x.j&&x.j.message)||'Almost done. Check your inbox to confirm.';}
         else{msg.textContent=(x.j&&x.j.error)||'Something went wrong. Please try again.';}
       })
       .catch(function(){msg.textContent='Something went wrong. Please try again.';})

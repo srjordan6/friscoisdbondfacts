@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Confirm your email | Frisco ISD Bond Facts</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/legal.css">
+<style>
+.cbtn{font:700 17px "Manrope","DM Sans",system-ui,sans-serif;background:#EB7256;color:#101A27;border:0;border-radius:99px;padding:14px 28px;cursor:pointer;margin:8px 0 18px}
+.cbtn:disabled{opacity:.6;cursor:default}
+.cmsg{font-size:18px;line-height:1.5;min-height:1.5em}
+.cmsg.ok{color:#2C6E85;font-weight:700}
+.cmsg.err{color:#AE3E26;font-weight:700}
+</style>
+</head>
+<body>
+<!--email_off-->
+<div class="wrap">
+<header><a class="brand" href="/">Frisco ISD Bond Facts</a><nav><a href="/">Home</a><a href="/documents">Documents</a></nav></header>
+<main>
+<h1>Confirm your email</h1>
+<p id="intro">One last step. Tap the button to confirm your address and join the update list.</p>
+<button id="go" class="cbtn" type="button">Confirm my email</button>
+<p id="msg" class="cmsg" role="status" aria-live="polite"></p>
+<p id="next" hidden><a href="/">Back to Frisco ISD Bond Facts</a></p>
+</main>
+<footer>
+  <p class="disclose">Political advertising paid for by Stephen Jordan, Frisco, Texas.</p>
+  <p class="legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclaimer">Disclaimer</a></p>
+</footer>
+</div>
+<script>
+(function(){
+  var token=(location.hash||'').slice(1), go=document.getElementById('go'), msg=document.getElementById('msg'),
+      intro=document.getElementById('intro'), next=document.getElementById('next');
+  // Remove the token from the address bar and history once it has been read.
+  if(token && history.replaceState) history.replaceState(null,'',location.pathname);
+  function done(text,ok){msg.textContent=text;msg.className='cmsg '+(ok?'ok':'err');next.hidden=false}
+  if(!/^[A-Za-z0-9_-]{30,60}$/.test(token)){
+    go.hidden=true; intro.textContent='';
+    done('This confirmation link is incomplete. Please open the link from your email again, or sign up again on the home page.',false);
+    return;
+  }
+  go.addEventListener('click',function(){
+    go.disabled=true; msg.className='cmsg'; msg.textContent='Confirming...';
+    fetch('/api/confirm',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({token:token})})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        if(d.ok){go.hidden=true;intro.textContent='';done('You are confirmed'+(d.first_name?', '+d.first_name:'')+'. Thank you for following the numbers.',true)}
+        else{go.hidden=true;done(d.error||'Something went wrong. Please try the link again.',false)}
+      })
+      .catch(function(){go.disabled=false;msg.className='cmsg err';msg.textContent='Could not reach the server. Please try again.'});
+  });
+})();
+</script>
+<!--/email_off-->
+</body>
+</html>

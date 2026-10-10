@@ -26,3 +26,8 @@
 
 /og-image.png
   Cache-Control: public, max-age=86400
+
+/confirm
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Referrer-Policy: no-referrer
+  X-Robots-Tag: noindex
