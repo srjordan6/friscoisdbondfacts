@@ -7,62 +7,82 @@
 <meta name="description" content="Frisco ISD's own numbers on debt, enrollment, and repairs, before the 2027 bond vote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F2F4F6; --paper:#FFFFFF; --ink:#16202A; --muted:#56636E;
-  --rule:#D3DAE0; --teal:#1E6B73; --brick:#9C3D2E; --ghost:#9AA6AF;
+  --bg:#F4F3EF; --paper:#FFFFFF; --ink:#101A27; --muted:#5B6874;
+  --rule:#D9DDD9; --teal:#2C6E85; --brick:#C2492F; --coral:#EB7256; --sky:#A8D8EE; --ghost:#8FB3C4;
+  --navy:#101A27; --head:"Manrope","DM Sans",system-ui,sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#121A21; --paper:#18232C; --ink:#E6ECF0; --muted:#A3AFB8;
-    --rule:#2C3A45; --teal:#5BB3BC; --brick:#E07A66; --ghost:#6B7882;
+    --bg:#0E1620; --paper:#16212C; --ink:#E8EDF0; --muted:#A3AFB8;
+    --rule:#26333F; --teal:#7FC3DC; --brick:#F08A70; --ghost:#6E8C9A;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#121A21; --paper:#18232C; --ink:#E6ECF0; --muted:#A3AFB8;
-  --rule:#2C3A45; --teal:#5BB3BC; --brick:#E07A66; --ghost:#6B7882;
+  --bg:#0E1620; --paper:#16212C; --ink:#E8EDF0; --muted:#A3AFB8;
+  --rule:#26333F; --teal:#7FC3DC; --brick:#F08A70; --ghost:#6E8C9A;
 }
 *,*::before,*::after{box-sizing:inherit}
+body{overflow-x:clip}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);
-  font:17px/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
-  font-variant-numeric:tabular-nums}
+  font:17px/1.65 "DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-variant-numeric:tabular-nums;counter-reset:ch}
 a{color:var(--teal)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
 .prose{max-width:68ch}
 header.top{display:flex;flex-direction:column;align-items:flex-start;gap:10px;
   padding:18px 0 14px;border-bottom:1px solid var(--rule)}
-.brand{font-weight:800;font-size:18px;letter-spacing:-.01em;color:var(--ink);text-decoration:none;white-space:nowrap;flex-shrink:0}
+.brand{font-family:var(--head);font-weight:800;font-size:16px;letter-spacing:.03em;color:var(--ink);text-decoration:none;white-space:nowrap;flex-shrink:0;text-transform:uppercase}
 nav{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 20px}
 nav a{color:var(--muted);text-decoration:none;font-size:15px;white-space:nowrap}
 nav a:hover{color:var(--ink)}
 @media (max-width:720px){nav{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}nav::-webkit-scrollbar{display:none}}
 
-.hero{padding:56px 0 24px}
-.hero h1{font-family:"Newsreader",Georgia,serif;font-weight:600;
-  font-size:clamp(34px,6vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;max-width:18ch}
-.hero p.lede{font-size:20px;color:var(--muted);max-width:56ch;margin:0}
+.hero{position:relative;isolation:isolate;color:#F2F1EC;padding:64px 0 44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center}
+.hero::before{content:"";position:absolute;inset:0 calc(50% - 50vw);background:radial-gradient(ellipse at 75% 45%,#2F4E6466,transparent 50%),var(--navy);z-index:-1}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--sky);margin:0 0 18px}
+.hero h1{font-family:var(--head);font-weight:600;
+  font-size:clamp(36px,4.3vw,52px);line-height:1.03;letter-spacing:-.045em;margin:0 0 20px}
+.hero h1 em{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-style:italic;color:var(--sky);letter-spacing:-.02em}
+.hero p.lede{font-size:17px;color:#C4CCD1;max-width:48ch;margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
+.hero .btn{margin:0}
+.hero .btn.alt{color:#F2F1EC;border-color:#FFFFFF55}
+.hero .cap{color:#9EABB4}
+.hero .herocta a{color:var(--sky)}
 
-.chart{background:var(--paper);border:1px solid var(--rule);border-radius:6px;
+.chart{background:var(--paper);border:1px solid var(--rule);border-radius:8px;
   padding:22px 22px 14px;margin:34px 0 10px;overflow-x:auto}
+.hero .chart{background:#FFFFFF08;border-color:#FFFFFF1F;margin:0;perspective:1100px}
+.hero .legend{color:#C4CCD1}
+#ds{transition:transform .5s ease;transform-origin:50% 60%}
+#ds .bar{transform-box:fill-box;transform-origin:50% 100%;animation:grow .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 45ms + 150ms)}
+#ds .ghost{opacity:0;animation:fadein .6s ease both;animation-delay:1.05s}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes fadein{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){#ds .bar,#ds .ghost{animation:none;opacity:1}#ds{transition:none}}
 .chart svg{display:block;width:100%;height:auto}
 .legend{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--muted);margin:10px 0 0}
 .key{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px;border-radius:2px}
 .cap{font-size:14px;color:var(--muted);margin:6px 0 0}
 
 section{padding:52px 0;border-top:1px solid var(--rule)}
-section h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,38px);
-  line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+section h2{font-family:var(--head);font-weight:700;font-size:clamp(28px,3.6vw,42px);
+  line-height:1.08;margin:0 0 16px;letter-spacing:-.04em}
+section>.prose:first-child>h2{counter-increment:ch}
+section>.prose:first-child>h2::before{content:counter(ch,decimal-leading-zero);display:block;font-family:"DM Sans",sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--teal);margin:0 0 12px}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;
   margin:26px 0 8px;border-top:2px solid var(--ink)}
 .fact{padding:16px 18px 16px 0;border-bottom:1px solid var(--rule)}
-.fact b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.fact b{display:block;font-family:var(--head);font-size:30px;font-weight:800;letter-spacing:-.04em;line-height:1.1}
 .fact span{color:var(--muted);font-size:15px}
 .up{color:var(--brick)} .down{color:var(--teal)}
 .src{font-size:14px;color:var(--muted);margin-top:14px}
@@ -70,7 +90,7 @@ section h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clam
 table{border-collapse:collapse;width:100%;font-size:16px;margin:20px 0}
 th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule)}
 th{font-weight:600;color:var(--muted);font-size:14px}
-td.n{text-align:right}
+td.n,th.n{text-align:right}
 .tablewrap{overflow-x:auto}
 
 .ask{background:var(--ink);color:var(--bg);border-radius:6px;padding:34px 28px;margin:10px 0}
@@ -78,9 +98,11 @@ td.n{text-align:right}
 .ask p{max-width:62ch}
 .ask ol{max-width:62ch;padding-left:22px}
 
-.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;
-  padding:12px 20px;border-radius:4px;margin:8px 10px 0 0}
+.btn{display:inline-block;background:var(--coral);color:#1B2024;text-decoration:none;font-weight:700;font-size:15px;
+  padding:13px 20px;border-radius:99px;margin:8px 10px 0 0;border:1px solid var(--coral);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px #0000001f}
 .btn.alt{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
 
 ol.sources{padding-left:20px;max-width:76ch}
 ol.sources li{margin:0 0 10px}
@@ -88,15 +110,28 @@ ol.sources li{margin:0 0 10px}
 footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color:var(--muted)}
 .disclose{border:1px solid var(--ink);color:var(--ink);display:inline-block;padding:8px 12px;font-weight:600;margin-bottom:12px}
 .big{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:28px 0 8px}
-.hl{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--brick);border-radius:6px;padding:20px 20px 16px}
-.hl b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(34px,5vw,48px);line-height:1;letter-spacing:-.02em;color:var(--brick)}
-.hl h3{font-size:18px;line-height:1.3;margin:10px 0 6px}
-.hl p{font-size:15px;color:var(--muted);margin:0}
-.quote{margin:24px 0;padding:18px 22px;border-left:6px solid var(--brick);background:var(--paper);font-family:"Newsreader",Georgia,serif;font-size:clamp(20px,2.6vw,26px);line-height:1.35}
-.quote span{display:block;margin-top:10px;font-family:inherit;font-size:14px;color:var(--muted)}
+.hl{background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--coral);border-radius:8px;padding:22px 22px 18px}
+.hl b{display:block;font-family:var(--head);font-weight:800;font-size:clamp(34px,4.6vw,46px);line-height:1;letter-spacing:-.05em;color:var(--brick)}
+.hl h3{font-family:var(--head);font-size:17px;line-height:1.3;margin:14px 0 6px;letter-spacing:-.01em}
+.hl p{font-size:14.5px;color:var(--muted);margin:0}
+.quote{margin:24px 0;padding:18px 22px;border-left:4px solid var(--coral);background:var(--paper);font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(20px,2.6vw,26px);line-height:1.35;border-radius:0 8px 8px 0}
+.quote span{display:block;margin-top:10px;font-family:"DM Sans",sans-serif;font-style:normal;font-size:14px;color:var(--muted)}
+.budget{background:var(--navy);color:#E9EDEF;border-radius:8px;padding:26px;margin:22px 0}
+.budget .eyebrow{margin:0 0 4px}
+.budget .rate{display:flex;height:48px;border-radius:4px;overflow:hidden;margin:16px 0 12px}
+.budget .rate span:first-child{width:73.5%;background:var(--coral)}
+.budget .rate span:last-child{flex:1;background:var(--sky)}
+.budget .legend2{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:14px;color:#D2D8DB}
+.budget p{font-size:13.5px;color:#AEB9BF;margin:12px 0 0}
+.calc{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:26px;margin:22px 0;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:start}
+.calc label{font-weight:700;font-size:14px}
+.calc input{display:block;width:100%;margin-top:10px;padding:12px 14px;border:1px solid var(--rule);border-radius:6px;font:600 20px var(--head);background:var(--bg);color:var(--ink)}
+.calc .note{font-size:13px;color:var(--muted);margin:10px 0 0}
+.calc table{margin:0;font-size:15px}
+.calc td.n b{font-family:var(--head);font-size:19px}
 .cta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:18px 0 6px}
-.cta-card{background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--brick);border-radius:6px;padding:20px}
-.cta-card h3{margin:0 0 8px;font-size:19px}
+.cta-card{background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--coral);border-radius:8px;padding:22px}
+.cta-card h3{margin:0 0 8px;font-family:var(--head);font-size:19px;letter-spacing:-.02em}
 .cta-card p{font-size:15px;color:var(--muted);margin:0 0 14px}
 .cta-card .fine{font-size:13px;margin:12px 0 0}
 .signup{display:flex;flex-direction:column;gap:10px}
@@ -112,15 +147,20 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
 button.btn{font-family:inherit;font-size:inherit;border:0;cursor:pointer;line-height:1.2}
 button.btn:disabled{opacity:.6;cursor:default}
 .signup button.btn{align-self:flex-start}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:28px;padding:44px 0 32px}
+}
 @media (max-width:600px){
   nav{flex-wrap:wrap;overflow-x:visible;gap:6px 14px}
   nav a{font-size:14px}
-  .hero{padding:28px 0 16px}
-  .hero h1{font-size:30px;line-height:1.1;max-width:none}
-  .hero p.lede{font-size:17px}
+  .hero{padding:32px 0 24px}
+  .hero h1{font-size:32px;line-height:1.06}
+  .hero p.lede{font-size:16px}
   .chart{padding:14px 10px 10px}
-  section h2{font-size:25px}
+  section h2{font-size:27px}
   .quote{font-size:19px;padding:14px 16px}
+  .calc{grid-template-columns:1fr;padding:20px}
+  .budget{padding:20px}
 }
 </style>
 </head>
@@ -134,18 +174,25 @@ button.btn:disabled{opacity:.6;cursor:default}
 </header>
 
 <div class="hero">
-  <h1>Frisco ISD's old bonds start paying off in 2034. A new bond can keep your tax rate from ever coming down.</h1>
-  <p class="lede">Every number on this site comes from the District's own budgets and bond filings. Read them, check them, and ask the District to show its math before the 2027 bond vote.</p>
-
-  <div class="chart" role="img" aria-label="Annual debt service on existing Frisco ISD bonds, about 195 million dollars a year through 2033, falling to 41 million dollars by 2042. A dashed line shows payments held flat if new debt fills the gap.">
+  <div class="hero-copy">
+    <p class="eyebrow">Before the 2027 bond vote</p>
+    <h1>Frisco ISD's old bonds start paying off in 2034. <em>A new bond can keep your tax rate from ever coming down.</em></h1>
+    <p class="lede">Every number on this site comes from the District's own budgets and bond filings. Read them, check them, and ask the District to show its math.</p>
+    <div class="actions">
+      <a class="btn" href="#numbers">See the numbers &darr;</a>
+      <a class="btn alt" href="#join">Get updates</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+  <div class="chart" role="img" aria-label="Annual debt service on existing Frisco ISD bonds, about 195 million dollars a year through 2033, falling to 41 million dollars by 2042. A dashed outline shows payments held flat if new debt fills the gap.">
     <svg id="ds" viewBox="0 0 900 380" aria-hidden="true"></svg>
     <div class="legend">
-      <span><i class="key" style="background:var(--brick)"></i>Payments on existing bonds, selected years</span>
-      <span><i class="key" style="background:transparent;border:2px dashed var(--ghost)"></i>If new debt fills the space (illustration, not a District projection)</span>
+      <span><i class="key" style="background:var(--coral)"></i>Payments on existing bonds, selected years</span>
+      <span><i class="key" style="background:transparent;border:2px dashed var(--sky)"></i>If new debt fills the space (illustration, not a District projection)</span>
     </div>
   </div>
   <p class="cap">Annual debt service in millions of dollars. Source: Frisco ISD Series 2026 Official Statement, Appendix A.</p>
-  <p class="herocta"><a href="#join">Get updates when new District numbers are posted &rarr;</a></p>
+  </div>
 </div>
 
 <section id="numbers">
@@ -169,6 +216,30 @@ button.btn:disabled{opacity:.6;cursor:default}
     <h2>The debt</h2>
     <p>Your Frisco ISD tax bill has two parts. The Maintenance and Operations rate runs the schools. The Interest and Sinking rate pays only for bonds. As old bonds are paid off, the Interest and Sinking rate could fall.</p>
     <p>The District has structured its existing payments to stay flat at about $195 million a year through 2033. After that, the payments drop. A new bond can be timed to fill that space. That is how a "no tax rate increase" bond works: your rate does not go up, but it may never go down either.</p>
+  </div>
+  <div class="budget">
+    <p class="eyebrow">2026 adopted rate, per $100 of taxable value</p>
+    <div class="rate" aria-hidden="true"><span></span><span></span></div>
+    <div class="legend2"><span>Operations (M&amp;O): $0.7494</span><span>Debt (I&amp;S): $0.2700</span><span>Total: $1.0194</span></div>
+    <p>The District calls the debt rate "a consistent $0.27 since 2018." Only that part pays for bonds. Source: Frisco ISD, Board Adopts 2026 Tax Rate, September 4, 2026.</p>
+  </div>
+  <div class="calc">
+    <div>
+      <label for="calcv">Your home's taxable value for school taxes</label>
+      <input id="calcv" inputmode="numeric" value="425000" aria-describedby="calcnote">
+      <p class="note" id="calcnote">Use the taxable value on your appraisal notice, after the homestead exemption.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Year</th><th class="n">Debt rate</th><th class="n">Your debt tax</th></tr></thead>
+        <tbody>
+          <tr><td>Today (2026-27)</td><td class="n" id="cr0"></td><td class="n"><b id="ca0"></b></td></tr>
+          <tr><td>2035, if no new debt</td><td class="n" id="cr1"></td><td class="n"><b id="ca1"></b></td></tr>
+          <tr><td>2040, if no new debt</td><td class="n" id="cr2"></td><td class="n"><b id="ca2"></b></td></tr>
+        </tbody>
+      </table>
+      <p class="note">Illustration only, not a District projection. It scales today's 27 cent rate by the scheduled drop in existing debt payments, assuming taxable values stay flat. Rising values would lower the rate further; new bonds would raise it. That is why the District should publish the real numbers, with and without the 2027 bond.</p>
+    </div>
   </div>
   <div class="facts">
     <div class="fact"><b>$1.95B</b><span>bond debt outstanding</span></div>
@@ -506,26 +577,56 @@ button.btn:disabled{opacity:.6;cursor:default}
   var data=[["2026",195.3],["2027",195.3],["2028",195.3],["2029",195.3],["2030",195.3],["2031",195.3],["2032",195.3],["2033",195.3],
             ["2034",186.5],["2035",155.4],["2036",155.4],["2038",113.8],["2040",99.6],["2042",41.0]];
   var svg=document.getElementById("ds"), ns="http://www.w3.org/2000/svg";
-  var narrow=(svg.parentNode.clientWidth||900)<560;
-  var W=narrow?420:900,H=narrow?330:380,L=narrow?40:56,R=narrow?6:16,T=20,B=narrow?34:40,max=220, n=data.length, bw=(W-L-R)/n, fs=narrow?12:13;
+  var box=svg.parentNode, narrow=(box.clientWidth||900)<560;
+  var W=narrow?440:900,H=narrow?350:390,L=narrow?48:60,R=narrow?18:34,T=narrow?36:40,B=narrow?34:40,max=220, n=data.length, bw=(W-L-R)/n, fs=narrow?12:13;
   svg.setAttribute("viewBox","0 0 "+W+" "+H);
-  function y(v){return T+(H-T-B)*(1-v/max)}
-  function el(t,a,txt){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;svg.appendChild(e);return e}
-  var css=getComputedStyle(document.documentElement);
-  var rule=css.getPropertyValue("--rule"),muted=css.getPropertyValue("--muted"),brick=css.getPropertyValue("--brick"),ghost=css.getPropertyValue("--ghost"),ink=css.getPropertyValue("--ink");
+  var dx=bw*0.26, dy=-bw*0.2, base=H-B;
+  function y(v){return T+(base-T)*(1-v/max)}
+  function el(t,a,txt,p){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;(p||svg).appendChild(e);return e}
+  function pts(a){return a.map(function(p){return p[0].toFixed(1)+","+p[1].toFixed(1)}).join(" ")}
+  var grid="#FFFFFF1F",txt="#AEB9BF",ink="#F2F1EC",sky="#A8D8EE";
+  var defs=el("defs",{});
+  var gf=el("linearGradient",{id:"dsFront",x1:0,y1:0,x2:0,y2:1},null,defs);
+  el("stop",{offset:"0","stop-color":"#F39A82"},null,gf); el("stop",{offset:"1","stop-color":"#C9543B"},null,gf);
   [0,50,100,150,200].forEach(function(v){
-    el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:rule,"stroke-width":1});
-    el("text",{x:L-6,y:y(v)+4,"text-anchor":"end","font-size":fs,fill:muted},"$"+v+"M");
+    el("line",{x1:L,x2:W-R+dx,y1:y(v),y2:y(v),stroke:grid,"stroke-width":1});
+    el("text",{x:L-6,y:y(v)+4,"text-anchor":"end","font-size":fs,fill:txt},"$"+v+"M");
   });
+  var ghost=el("g",{"class":"ghost"});
   data.forEach(function(d,i){
-    var x=L+i*bw+bw*0.18,w=bw*0.64;
-    el("rect",{x:x,y:y(d[1]),width:w,height:(H-B)-y(d[1]),fill:brick,rx:2});
-    el("text",{x:x+w/2,y:H-B+18,"text-anchor":"middle","font-size":fs,fill:muted},narrow?"'"+d[0].slice(2):d[0]);
-    if((i===7||i>=9)&&!(narrow&&i===10)) el("text",{x:x+w/2,y:y(d[1])-6,"text-anchor":"middle","font-size":narrow?11:13,"font-weight":600,fill:ink},"$"+Math.round(d[1]));
+    var x=L+i*bw+bw*0.14,w=bw*0.6,top=y(d[1]);
+    var g=el("g",{"class":"bar",style:"--i:"+i});
+    el("polygon",{points:pts([[x+w,top],[x+w+dx,top+dy],[x+w+dx,base+dy],[x+w,base]]),fill:"#7A3324"},null,g);
+    el("polygon",{points:pts([[x,top],[x+dx,top+dy],[x+w+dx,top+dy],[x+w,top]]),fill:"#F7B4A2"},null,g);
+    el("rect",{x:x,y:top,width:w,height:base-top,fill:"url(#dsFront)"},null,g);
+    el("text",{x:x+w/2,y:base+18,"text-anchor":"middle","font-size":fs,fill:txt},narrow?"'"+d[0].slice(2):d[0]);
+    if(i>=8){
+      var gt=y(195.3);
+      el("rect",{x:x,y:gt,width:w,height:top-gt,fill:"#A8D8EE14",stroke:sky,"stroke-width":1.4,"stroke-dasharray":"4 4"},null,ghost);
+      el("polygon",{points:pts([[x,gt],[x+dx,gt+dy],[x+w+dx,gt+dy],[x+w,gt]]),fill:"none",stroke:sky,"stroke-width":1.2,"stroke-dasharray":"4 4"},null,ghost);
+    }
+    if((i===7||i>=9)&&!(narrow&&i===10)) el("text",{x:x+w/2+dx/2,y:top+dy-7,"text-anchor":"middle","font-size":narrow?11:13,"font-weight":700,fill:ink},"$"+Math.round(d[1]),ghost);
   });
-  var x0=L+8*bw, xe=W-R;
-  el("line",{x1:x0,x2:xe,y1:y(195.3),y2:y(195.3),stroke:ghost,"stroke-width":2.5,"stroke-dasharray":"7 6"});
-  el("text",{x:xe,y:y(195.3)-10,"text-anchor":"end","font-size":fs,fill:muted},"Rate held flat?");
+  el("text",{x:W-R+dx,y:y(195.3)+dy-22,"text-anchor":"end","font-size":fs,"font-weight":700,fill:sky},"Rate held flat?",ghost);
+  var fine=window.matchMedia&&matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(fine){
+    box.addEventListener("pointermove",function(e){var r=box.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;svg.style.transform="rotateX("+(py*-5).toFixed(2)+"deg) rotateY("+(px*7).toFixed(2)+"deg)"});
+    box.addEventListener("pointerleave",function(){svg.style.transform=""});
+  }
+})();
+(function(){
+  var inp=document.getElementById("calcv"); if(!inp) return;
+  var rows=[["Today (2026-27)",195.3],["2035, if no new debt",155.4],["2040, if no new debt",99.6]];
+  var fmt=function(v){return "$"+Math.round(v).toLocaleString("en-US")};
+  function run(){
+    var v=Math.max(0,Number(String(inp.value).replace(/[^0-9.]/g,""))||0);
+    rows.forEach(function(r,i){
+      var rate=0.27*r[1]/195.3;
+      document.getElementById("cr"+i).textContent="$"+rate.toFixed(3);
+      document.getElementById("ca"+i).textContent=fmt(v*rate/100);
+    });
+  }
+  inp.addEventListener("input",run); run();
 })();
 </script>
 <script>

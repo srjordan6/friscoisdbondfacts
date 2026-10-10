@@ -7,11 +7,11 @@
 <meta name="description" content="Frisco ISD board documents on the budget, debt, and bonds, archived for the public.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F2F4F6; --paper:#FFFFFF; --ink:#16202A; --muted:#56636E;
-  --rule:#D3DAE0; --teal:#1E6B73; --brick:#9C3D2E; --ghost:#9AA6AF;
+  --bg:#F4F3EF; --paper:#FFFFFF; --ink:#101A27; --muted:#5B6874;
+  --rule:#D9DDD9; --teal:#2C6E85; --brick:#C2492F; --ghost:#8FB3C4;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -30,7 +30,7 @@
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);
-  font:17px/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font:17px/1.65 "DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   font-variant-numeric:tabular-nums}
 a{color:var(--teal)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
@@ -38,7 +38,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offse
 .prose{max-width:68ch}
 header.top{display:flex;flex-direction:column;align-items:flex-start;gap:10px;
   padding:18px 0 14px;border-bottom:1px solid var(--rule)}
-.brand{font-weight:800;font-size:18px;letter-spacing:-.01em;color:var(--ink);text-decoration:none;white-space:nowrap;flex-shrink:0}
+.brand{font-family:"Manrope",sans-serif;font-weight:800;font-size:16px;letter-spacing:.03em;color:var(--ink);text-decoration:none;white-space:nowrap;flex-shrink:0;text-transform:uppercase}
 nav{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 20px}
 nav a{color:var(--muted);text-decoration:none;font-size:15px;white-space:nowrap}
 nav a:hover{color:var(--ink)}
@@ -58,8 +58,8 @@ nav a:hover{color:var(--ink)}
 .cap{font-size:14px;color:var(--muted);margin:6px 0 0}
 
 section{padding:52px 0;border-top:1px solid var(--rule)}
-section h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(26px,3.6vw,38px);
-  line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+section h2{font-family:"Manrope",sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);
+  line-height:1.08;margin:0 0 16px;letter-spacing:-.04em}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;
   margin:26px 0 8px;border-top:2px solid var(--ink)}
 .fact{padding:16px 18px 16px 0;border-bottom:1px solid var(--rule)}
