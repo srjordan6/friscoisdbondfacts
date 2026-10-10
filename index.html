@@ -637,7 +637,7 @@ button.btn:disabled{opacity:.6;cursor:default}
   el("text",{x:W-R+dx,y:y(195.3)+dy-22,"text-anchor":"end","font-size":fs,"font-weight":700,fill:sky},"Rate held flat?",ghost);
   svg.appendChild(labels);
   // Entrance: every bar starts at the $195M level, then the post-2033 bars drop one at a time.
-  var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var still=false; // Full animation on every device, regardless of OS motion settings (publisher's choice).
   var drop=bars.slice(8), timers=[], running=false;
   function finish(){bars.forEach(function(b){b.set(b.v);if(b.label){b.label.style.opacity=1}});ghost.style.opacity=1;}
   function play(){
@@ -663,7 +663,8 @@ button.btn:disabled{opacity:.6;cursor:default}
   if(!("IntersectionObserver" in window)){ play() }
   else{
     bars.forEach(function(b,i){b.set(i>=8?195.3:b.v)}); drop.forEach(function(b){if(b.label)b.label.style.opacity=0}); ghost.style.opacity=0;
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play()}})},{threshold:0.45});
+    var go=function(){if(document.hidden){document.addEventListener("visibilitychange",function v(){if(!document.hidden){document.removeEventListener("visibilitychange",v);play()}})}else{play()}};
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();go()}})},{threshold:0.3});
     io.observe(box);
   }
   var fine=window.matchMedia&&matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion: reduce)").matches;
