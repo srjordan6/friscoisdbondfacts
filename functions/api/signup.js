@@ -38,6 +38,24 @@ export async function onRequestPost({ request, env }) {
     return reply({ ok: false, error: "ZIP code should be 5 digits." }, 400);
   }
 
+  // Cloudflare Turnstile human check. Enforced once the TURNSTILE_SECRET secret is set in Pages.
+  if (env.TURNSTILE_SECRET) {
+    const token = String(data["cf-turnstile-response"] || data.turnstile || "");
+    if (!token) return reply({ ok: false, error: "Please complete the quick human check, then try again." }, 403);
+    try {
+      const body = new FormData();
+      body.append("secret", env.TURNSTILE_SECRET);
+      body.append("response", token);
+      const ip = request.headers.get("CF-Connecting-IP");
+      if (ip) body.append("remoteip", ip);
+      const v = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", { method: "POST", body });
+      const out = await v.json();
+      if (!out.success) return reply({ ok: false, error: "The human check expired. Please try again." }, 403);
+    } catch {
+      return reply({ ok: false, error: "Something went wrong. Please try again." }, 500);
+    }
+  }
+
   try {
     await env.DB.prepare(
       "INSERT INTO signups (email, zip, source) VALUES (?1, ?2, ?3) " +

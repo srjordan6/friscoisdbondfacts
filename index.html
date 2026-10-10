@@ -530,6 +530,7 @@ button.btn:disabled{opacity:.6;cursor:default}
         <input id="su-zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="ZIP (optional)" maxlength="10">
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="source" value="join">
+        <div id="ts" class="cf-ts" data-sitekey=""></div>
         <button class="btn" type="submit">Send me updates</button>
         <p class="formmsg" role="status" aria-live="polite"></p>
       </form>
@@ -734,19 +735,26 @@ button.btn:disabled{opacity:.6;cursor:default}
   // Email signup.
   var f=document.getElementById('signup'); if(!f) return;
   var msg=f.querySelector('.formmsg'), sb=f.querySelector('button[type=submit]');
+  // Cloudflare Turnstile: loads only when a site key is set on #ts.
+  var tsBox=document.getElementById('ts'), tsKey=tsBox&&tsBox.getAttribute('data-sitekey'), tsId=null, tsToken='';
+  if(tsKey){
+    window.onTsLoad=function(){tsId=turnstile.render(tsBox,{sitekey:tsKey,appearance:'interaction-only',size:'flexible',action:'signup',
+      callback:function(t){tsToken=t},'expired-callback':function(){tsToken=''},'error-callback':function(){tsToken=''}})};
+    var s=document.createElement('script');s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTsLoad&render=explicit';s.async=true;s.defer=true;document.head.appendChild(s);
+  }
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var email=f.email.value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.textContent='Please enter a valid email address.';f.email.focus();return;}
     sb.disabled=true; msg.textContent='Saving...';
-    fetch('/api/signup',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email,zip:f.zip.value.trim(),website:f.website.value,source:f.source.value})})
+    fetch('/api/signup',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email,zip:f.zip.value.trim(),website:f.website.value,source:f.source.value,turnstile:tsToken})})
       .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.ok,j:j}})})
       .then(function(x){
         if(x.ok){f.reset();msg.textContent='Thank you. You are on the list.';}
         else{msg.textContent=(x.j&&x.j.error)||'Something went wrong. Please try again.';}
       })
       .catch(function(){msg.textContent='Something went wrong. Please try again.';})
-      .then(function(){sb.disabled=false;});
+      .then(function(){sb.disabled=false;if(tsId!==null&&window.turnstile){turnstile.reset(tsId);tsToken=''}});
   });
 })();
 </script>
