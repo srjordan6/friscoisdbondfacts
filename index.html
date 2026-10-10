@@ -747,6 +747,16 @@ button.btn:disabled{opacity:.6;cursor:default}
     var email=f.email.value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.textContent='Please enter a valid email address.';f.email.focus();return;}
     sb.disabled=true; msg.textContent='Saving...';
+    // Wait briefly for the Turnstile token if the visitor submitted before it was ready.
+    var waited=0;
+    (function go(){
+      if(tsKey && !tsToken && window.turnstile && tsId!==null){ tsToken=turnstile.getResponse(tsId)||''; }
+      if(tsKey && !tsToken && waited<12000){ msg.textContent='One moment, checking you are human...'; waited+=300; return setTimeout(go,300); }
+      send();
+    })();
+  });
+  function send(){
+    var email=f.email.value.trim(); msg.textContent='Saving...';
     fetch('/api/signup',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email,zip:f.zip.value.trim(),website:f.website.value,source:f.source.value,turnstile:tsToken})})
       .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.ok,j:j}})})
       .then(function(x){
@@ -755,7 +765,7 @@ button.btn:disabled{opacity:.6;cursor:default}
       })
       .catch(function(){msg.textContent='Something went wrong. Please try again.';})
       .then(function(){sb.disabled=false;if(tsId!==null&&window.turnstile){turnstile.reset(tsId);tsToken=''}});
-  });
+  }
 })();
 </script>
 <!--/email_off-->
