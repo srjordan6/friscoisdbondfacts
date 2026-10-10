@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Send an update | Frisco ISD Bond Facts admin</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/legal.css">
+<style>
+main{max-width:860px}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 22px}
+.stat{background:#fff;border:1px solid #D9DDD9;border-radius:10px;padding:12px 16px;min-width:130px}
+.stat b{display:block;font:800 26px "Manrope",system-ui,sans-serif;color:#101A27}
+.stat span{font-size:13px;color:#5B6874}
+label{display:block;font-weight:700;margin:14px 0 6px}
+input[type=text],textarea{width:100%;box-sizing:border-box;font:16px "DM Sans",system-ui,sans-serif;padding:11px 12px;border:1px solid #C9CEC9;border-radius:8px;background:#fff;color:#101A27}
+textarea{min-height:260px;line-height:1.5}
+.hint{font-size:13px;color:#5B6874;margin:6px 0 0}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+button{font:700 15px "Manrope",system-ui,sans-serif;border-radius:99px;padding:11px 20px;cursor:pointer;border:1px solid #101A27;background:#fff;color:#101A27}
+button.primary{background:#EB7256;border-color:#EB7256}
+button:disabled{opacity:.5;cursor:default}
+.msg{min-height:1.4em;font-weight:700}
+.msg.err{color:#AE3E26}.msg.ok{color:#2C6E85}
+iframe{width:100%;height:640px;border:1px solid #D9DDD9;border-radius:10px;background:#F4F3EF}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #E3E6E3}
+progress{width:100%;height:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="brand" href="/">Frisco ISD Bond Facts</a><nav><a href="/">Home</a><a href="/admin">Admin</a></nav></header>
+<main>
+<h1>Send an update</h1>
+<div class="stats" id="stats"><div class="stat"><b>…</b><span>Loading</span></div></div>
+<p class="msg" id="gate"></p>
+
+<label for="subject">Subject</label>
+<input type="text" id="subject" maxlength="150" placeholder="New Frisco ISD documents: October board packet">
+
+<label for="body">Message</label>
+<textarea id="body" placeholder="Write the update here. Each email starts with &quot;Hi [first name],&quot; automatically.
+
+Leave a blank line between paragraphs.
+- Start lines with a dash to make a list
+**Two stars** around words make them bold.
+Paste web addresses as is and they become links."></textarea>
+<p class="hint">Every email automatically adds the greeting, a "See the numbers" button, the unsubscribe link, one-click unsubscribe for Gmail and Yahoo, and your "paid for by" line.</p>
+
+<div class="row">
+  <button type="button" id="btnPreview">Preview</button>
+  <button type="button" id="btnTest">Send a test to me</button>
+  <button type="button" id="btnSend" class="primary">Send to all subscribers</button>
+</div>
+<p class="msg" id="msg" role="status" aria-live="polite"></p>
+<progress id="prog" value="0" max="1" hidden></progress>
+
+<h2>Preview</h2>
+<iframe id="preview" title="Email preview" sandbox></iframe>
+
+<h2>Recent updates</h2>
+<table><thead><tr><th>Date (UTC)</th><th>Subject</th><th>Sent</th><th>Failed</th><th>Status</th></tr></thead><tbody id="hist"><tr><td colspan="5">None yet.</td></tr></tbody></table>
+</main>
+</div>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)}, msg=$('msg');
+  var testedKey='', resume=null;
+  function say(t,kind){msg.textContent=t;msg.className='msg'+(kind?' '+kind:'')}
+  function api(path,body){
+    return fetch('/api/admin/'+path, body?{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}:{credentials:'same-origin'})
+      .then(function(r){return r.json().catch(function(){return {ok:false,error:'Unexpected response ('+r.status+').'}})});
+  }
+  function draft(){return {subject:$('subject').value.trim(),body:$('body').value.trim()}}
+  function key(d){return d.subject+'\u0000'+d.body}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+  function loadStats(){
+    api('stats').then(function(d){
+      if(!d.ok){$('gate').textContent=d.error;$('gate').className='msg err';$('stats').innerHTML='';return}
+      var c=d.counts;
+      $('stats').innerHTML='<div class="stat"><b>'+c.confirmed+'</b><span>Confirmed subscribers</span></div>'+
+        '<div class="stat"><b>'+c.pending+'</b><span>Waiting to confirm</span></div>'+
+        '<div class="stat"><b>'+c.unsubscribed+'</b><span>Unsubscribed</span></div>';
+      $('stats').dataset.confirmed=c.confirmed;
+      $('hist').innerHTML=d.campaigns.length?d.campaigns.map(function(x){
+        return '<tr><td>'+esc(x.created_at)+'</td><td>'+esc(x.subject)+'</td><td>'+x.sent+'</td><td>'+x.failed+'</td><td>'+(x.finished_at?'Done':'Not finished')+'</td></tr>'}).join(''):'<tr><td colspan="5">None yet.</td></tr>';
+    });
+  }
+
+  $('btnPreview').onclick=function(){
+    api('preview',draft()).then(function(d){ if(!d.ok) return say(d.error,'err'); $('preview').srcdoc=d.html; say('Preview updated. This is how it looks with the name "Stephen".','ok') });
+  };
+  $('btnTest').onclick=function(){
+    var d=draft(); this.disabled=true; var b=this; say('Sending a test...');
+    api('test',d).then(function(r){ b.disabled=false; if(!r.ok) return say(r.error,'err'); testedKey=key(d); say('Test sent to '+r.to+'. Check it in your inbox, then send to everyone.','ok') });
+  };
+  $('btnSend').onclick=function(){
+    var d=draft();
+    if(!d.subject||!d.body) return say('Write a subject and a message first.','err');
+    if(testedKey!==key(d)) return say('Send yourself a test of this exact version first. Any edit needs a new test.','err');
+    var n=$('stats').dataset.confirmed||'all';
+    var resuming=resume&&resume.key===key(d);
+    if(!resuming&&!confirm('Send "'+d.subject+'" to '+n+' confirmed subscriber(s)? This cannot be undone.')) return;
+    var btns=document.querySelectorAll('button'); btns.forEach(function(x){x.disabled=true});
+    say(resuming?'Resuming...':'Starting...'); $('prog').hidden=false;
+    (resuming?Promise.resolve({ok:true,campaign_id:resume.id,recipients:resume.total}):api('create',d)).then(function(c){
+      if(!c.ok){btns.forEach(function(x){x.disabled=false});return say(c.error,'err')}
+      resume={id:c.campaign_id,key:key(d),total:c.recipients||0};
+      var total=c.recipients||0, sent=0, failed=0; $('prog').max=Math.max(total,1);
+      (function next(){
+        api('send',{campaign_id:c.campaign_id}).then(function(r){
+          if(!r.ok){btns.forEach(function(x){x.disabled=false});return say(r.error+' Click "Send to all" again to resume; nobody gets a duplicate.','err')}
+          sent+=r.sent; failed+=r.failed; $('prog').value=sent+failed;
+          say('Sent '+sent+' of '+total+(failed?' ('+failed+' failed)':'')+'...');
+          if(r.done){ resume=null; btns.forEach(function(x){x.disabled=false}); say('Done. Sent '+sent+(failed?', '+failed+' failed (see Recent updates)':'')+'.', failed?'err':'ok'); loadStats(); }
+          else setTimeout(next,400);
+        }).catch(function(){btns.forEach(function(x){x.disabled=false});say('Connection lost. Click "Send to all" again to resume; nobody gets a duplicate.','err')});
+      })();
+    });
+  };
+  loadStats();
+})();
+</script>
+</body>
+</html>
