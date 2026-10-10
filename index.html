@@ -51,7 +51,7 @@ nav a:hover{color:var(--ink)}
 
 .chart{background:var(--paper);border:1px solid var(--rule);border-radius:6px;
   padding:22px 22px 14px;margin:34px 0 10px;overflow-x:auto}
-.chart svg{display:block;width:100%;min-width:620px;height:auto}
+.chart svg{display:block;width:100%;height:auto}
 .legend{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--muted);margin:10px 0 0}
 .key{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px;border-radius:2px}
 .cap{font-size:14px;color:var(--muted);margin:6px 0 0}
@@ -94,6 +94,16 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
 .hl p{font-size:15px;color:var(--muted);margin:0}
 .quote{margin:24px 0;padding:18px 22px;border-left:6px solid var(--brick);background:var(--paper);font-family:"Newsreader",Georgia,serif;font-size:clamp(20px,2.6vw,26px);line-height:1.35}
 .quote span{display:block;margin-top:10px;font-family:inherit;font-size:14px;color:var(--muted)}
+@media (max-width:600px){
+  nav{flex-wrap:wrap;overflow-x:visible;gap:6px 14px}
+  nav a{font-size:14px}
+  .hero{padding:28px 0 16px}
+  .hero h1{font-size:30px;line-height:1.1;max-width:none}
+  .hero p.lede{font-size:17px}
+  .chart{padding:14px 10px 10px}
+  section h2{font-size:25px}
+  .quote{font-size:19px;padding:14px 16px}
+}
 </style>
 </head>
 <body>
@@ -331,13 +341,13 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
       <tr><td>Aldine ISD</td><td class="n">61,633</td><td class="n">$1.0340</td><td class="n">$0.3025</td></tr>
       <tr><td>North East ISD</td><td class="n">59,830</td><td class="n">$0.9822</td><td class="n">$0.3000</td></tr>
       <tr><td>Fort Worth ISD</td><td class="n">74,850</td><td class="n">$1.0291</td><td class="n down">$0.2422</td></tr>
-      <tr><td>Klein ISD</td><td class="n">53,294</td><td class="n">$1.0119</td><td class="n">not listed</td></tr>
-      <tr><td>Fort Bend ISD</td><td class="n">77,545</td><td class="n">$1.0569</td><td class="n">not listed</td></tr>
+      <tr><td>Klein ISD</td><td class="n">53,294</td><td class="n">$1.0119</td><td class="n">$0.3150</td></tr>
+      <tr><td>Fort Bend ISD</td><td class="n">77,545</td><td class="n">$1.0569</td><td class="n">$0.2700</td></tr>
     </tbody>
   </table>
   </div>
   <div class="prose"><p>A flat rate is not a flat bill. Frisco ISD reports the average home value rose from $551,246 to $565,084 for 2026, so the unchanged rate raised that homeowner's school tax bill by $141.</p></div>
-  <p class="src">Sources: NCES Table 215.30 (enrollment); adopted 2025-26 tax rates published by each district or Community Impact; Fort Worth ISD adopted tax rate history; Frisco ISD 2026 tax rate announcement. Fort Bend's rate includes a temporary 7 cent disaster increase.</p>
+  <p class="src">Sources: NCES Table 215.30 (enrollment); Texas Comptroller, 2025 School District Tax Rates and Levies (tax year 2025, the 2025-26 school year); Fort Worth ISD adopted tax rate history; Frisco ISD 2026 tax rate announcement. Fort Bend's rate includes a temporary 7 cent disaster increase.</p>
 </section>
 
 <section id="committee">
@@ -451,24 +461,26 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color
   var data=[["2026",195.3],["2027",195.3],["2028",195.3],["2029",195.3],["2030",195.3],["2031",195.3],["2032",195.3],["2033",195.3],
             ["2034",186.5],["2035",155.4],["2036",155.4],["2038",113.8],["2040",99.6],["2042",41.0]];
   var svg=document.getElementById("ds"), ns="http://www.w3.org/2000/svg";
-  var W=900,H=380,L=56,R=16,T=20,B=40,max=220, n=data.length, bw=(W-L-R)/n;
+  var narrow=(svg.parentNode.clientWidth||900)<560;
+  var W=narrow?420:900,H=narrow?330:380,L=narrow?40:56,R=narrow?6:16,T=20,B=narrow?34:40,max=220, n=data.length, bw=(W-L-R)/n, fs=narrow?12:13;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
   function y(v){return T+(H-T-B)*(1-v/max)}
   function el(t,a,txt){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;svg.appendChild(e);return e}
   var css=getComputedStyle(document.documentElement);
   var rule=css.getPropertyValue("--rule"),muted=css.getPropertyValue("--muted"),brick=css.getPropertyValue("--brick"),ghost=css.getPropertyValue("--ghost"),ink=css.getPropertyValue("--ink");
   [0,50,100,150,200].forEach(function(v){
     el("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:rule,"stroke-width":1});
-    el("text",{x:L-10,y:y(v)+5,"text-anchor":"end","font-size":13,fill:muted},"$"+v+"M");
+    el("text",{x:L-6,y:y(v)+4,"text-anchor":"end","font-size":fs,fill:muted},"$"+v+"M");
   });
   data.forEach(function(d,i){
     var x=L+i*bw+bw*0.18,w=bw*0.64;
     el("rect",{x:x,y:y(d[1]),width:w,height:(H-B)-y(d[1]),fill:brick,rx:2});
-    el("text",{x:x+w/2,y:H-B+20,"text-anchor":"middle","font-size":13,fill:muted},d[0]);
-    if(i===7||i>=9) el("text",{x:x+w/2,y:y(d[1])-7,"text-anchor":"middle","font-size":13,"font-weight":600,fill:ink},"$"+Math.round(d[1]));
+    el("text",{x:x+w/2,y:H-B+18,"text-anchor":"middle","font-size":fs,fill:muted},narrow?"'"+d[0].slice(2):d[0]);
+    if((i===7||i>=9)&&!(narrow&&i===10)) el("text",{x:x+w/2,y:y(d[1])-6,"text-anchor":"middle","font-size":narrow?11:13,"font-weight":600,fill:ink},"$"+Math.round(d[1]));
   });
   var x0=L+8*bw, xe=W-R;
   el("line",{x1:x0,x2:xe,y1:y(195.3),y2:y(195.3),stroke:ghost,"stroke-width":2.5,"stroke-dasharray":"7 6"});
-  el("text",{x:xe,y:y(195.3)-10,"text-anchor":"end","font-size":13,fill:muted},"Rate held flat?");
+  el("text",{x:xe,y:y(195.3)-10,"text-anchor":"end","font-size":fs,fill:muted},"Rate held flat?");
 })();
 </script>
 </body>
