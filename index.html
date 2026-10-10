@@ -91,6 +91,12 @@ table{border-collapse:collapse;width:100%;font-size:16px;margin:20px 0}
 th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule)}
 th{font-weight:600;color:var(--muted);font-size:14px}
 td.n,th.n{text-align:right}
+.receipts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.sm{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;line-height:1.3;color:var(--teal);background:#2C6E8512;border:1px solid #2C6E8533;border-radius:99px;padding:4px 11px;text-decoration:none;white-space:nowrap}
+.sm::after{content:"\2197";font-size:11px}
+.sm:hover{background:#2C6E8524}
+.hero .sm,.budget .sm{color:var(--sky);background:#A8D8EE14;border-color:#A8D8EE40}
+.quote .sm{font-style:normal;margin-left:6px;vertical-align:1px}
 .tablewrap{overflow-x:auto}
 
 .ask{background:var(--ink);color:var(--bg);border-radius:6px;padding:34px 28px;margin:10px 0}
@@ -192,13 +198,14 @@ button.btn:disabled{opacity:.6;cursor:default}
     </div>
   </div>
   <p class="cap">Annual debt service in millions of dollars. Source: Frisco ISD Series 2026 Official Statement, Appendix A.</p>
+  <div class="receipts"><a class="sm" href="https://emma.msrb.org/IssueView/Details/P2444051" target="_blank" rel="noopener">Official statement on EMMA</a></div>
   </div>
 </div>
 
 <section id="numbers">
   <div class="prose">
     <h2>The numbers Frisco ISD should explain before asking for a bond</h2>
-    <p>Every figure below comes from the Texas Education Agency's own public data for Frisco and 15 comparison districts.</p>
+    <p>Every figure below comes from the Texas Education Agency's own public data for Frisco and 15 comparison districts. <a class="sm" href="#data">All TEA figures, downloadable</a></p>
   </div>
   <div class="big">
     <div class="hl"><b>2 &rarr; 10</b><h3>Executives TEA classifies at assistant superintendent level or above</h3><p>Under TEA's deputy, associate, and assistant superintendent role code, Frisco reported 2 in 2015-16 and 10 today, while enrollment grew 18%. Under the same code, Plano reports 5, Allen 4, Prosper 2.</p></div>
@@ -221,7 +228,7 @@ button.btn:disabled{opacity:.6;cursor:default}
     <p class="eyebrow">2026 adopted rate, per $100 of taxable value</p>
     <div class="rate" aria-hidden="true"><span></span><span></span></div>
     <div class="legend2"><span>Operations (M&amp;O): $0.7494</span><span>Debt (I&amp;S): $0.2700</span><span>Total: $1.0194</span></div>
-    <p>The District calls the debt rate "a consistent $0.27 since 2018." Only that part pays for bonds. Source: Frisco ISD, Board Adopts 2026 Tax Rate, September 4, 2026.</p>
+    <p>The District calls the debt rate "a consistent $0.27 since 2018." Only that part pays for bonds. Source: Frisco ISD, Board Adopts 2026 Tax Rate, September 4, 2026. <a class="sm" href="https://www.friscoisd.org/article/3114189" target="_blank" rel="noopener">District announcement</a></p>
   </div>
   <div class="calc">
     <div>
@@ -254,7 +261,7 @@ button.btn:disabled{opacity:.6;cursor:default}
   <div class="prose">
     <h2>How the District is making room for the next bond</h2>
     <p>Frisco ISD has paid off old bonds faster on purpose. That keeps today's debt payments high, so the 27 cent debt rate never comes down, and it clears space after 2033 to add new debt on top. This is not our interpretation. It is how the District describes it.</p>
-    <blockquote class="quote">&ldquo;All of the refinancing we've done this year has shortened our debt payback schedules to make room for future bond programs.&rdquo;<span>Frisco ISD, 2026-27 Budget Workshop #3, May 7, 2026</span></blockquote>
+    <blockquote class="quote">&ldquo;All of the refinancing we've done this year has shortened our debt payback schedules to make room for future bond programs.&rdquo;<span>Frisco ISD, 2026-27 Budget Workshop #3, May 7, 2026 <a class="sm" href="/docs/2026-05-07_2026-27-budget-workshop-3-financial-benchmarking-debt-capacity.pdf#page=20" target="_blank" rel="noopener">Workshop #3, slide 20</a></span></blockquote>
   </div>
   <div class="tablewrap">
   <table>
@@ -265,6 +272,7 @@ button.btn:disabled{opacity:.6;cursor:default}
       <tr><td>Further refinancings in October 2025 and 2026</td><td>2025 to 2026</td><td>More payoff moved earlier</td></tr>
     </tbody>
   </table>
+  <div class="receipts"><a class="sm" href="/docs/2026-03-09_bond-program-and-debt-presentation-samco-capital.pdf#page=6" target="_blank" rel="noopener">Bond presentation, p. 6: early payoff and refinancing</a><a class="sm" href="/docs/2026-03-09_bond-program-and-debt-presentation-samco-capital.pdf#page=9" target="_blank" rel="noopener">p. 9: shortened maturities</a></div>
   </div>
   <div class="tablewrap">
   <table>
@@ -279,6 +287,7 @@ button.btn:disabled{opacity:.6;cursor:default}
       <tr><td>2035</td><td class="n down">$155.4M</td></tr>
     </tbody>
   </table>
+  <div class="receipts"><a class="sm" href="/docs/2026-06_frisco-isd-2026-27-official-budget-book.pdf#page=26" target="_blank" rel="noopener">Budget Book, 2023-24 (PDF p. 26)</a><a class="sm" href="/docs/2026-06_frisco-isd-2026-27-official-budget-book.pdf#page=101" target="_blank" rel="noopener">2024-25 to 2026-27 (PDF p. 101)</a><a class="sm" href="https://emma.msrb.org/IssueView/Details/P2444051" target="_blank" rel="noopener">2027 to 2035 schedule on EMMA</a></div>
   </div>
   <div class="prose">
     <h3>Short-lived items, 30-year bonds</h3>
@@ -298,6 +307,7 @@ button.btn:disabled{opacity:.6;cursor:default}
       <tr><td>Series 2024 (building and refunding)</td><td class="n">$82.0M</td><td class="n">2054</td><td class="n">30 years</td></tr>
     </tbody>
   </table>
+  <div class="receipts"><a class="sm" href="https://aptg.co/7SXTrh#page=64" target="_blank" rel="noopener">FY2021 audited report, Note 7 (p. 64)</a><a class="sm" href="https://emma.msrb.org/IssuerHomePage/Issuer?id=496AEB890802A8E9B4F1F90CC67F8B06&amp;type=G" target="_blank" rel="noopener">All Frisco ISD bond sales on EMMA</a></div>
   </div>
   <div class="prose">
     <p>A 30-year final maturity does not by itself show which dollars paid for which items, so we checked the yearly repayment schedule of each sale on EMMA. Of <strong>$1.03 billion</strong> in these building bonds sold from 2019 to 2024, only <strong>14.7%</strong> of the principal was scheduled to be repaid within 5 years, and <strong>31.7%</strong> within 10 years. The average dollar was borrowed for 12 to 19 years. Unless technology and buses were a small slice of each sale and were matched to those early payments, a Chromebook that lasts five years may still be on the tax bill well over a decade later. The District should show which series and maturities paid for them.</p>
@@ -327,6 +337,7 @@ button.btn:disabled{opacity:.6;cursor:default}
       <tr><th>Total</th><th class="n">$1.86M</th><th class="n">$45.31M</th><th class="n">$47.17M</th></tr>
     </tbody>
   </table>
+  <div class="receipts"><a class="sm" href="https://www.friscoisd.org/page/check-registers" target="_blank" rel="noopener">District check registers, FY2014 to FY2026</a><a class="sm" href="https://www.friscoisd.org/page/disclosures-conflict-of-interest" target="_blank" rel="noopener">District disclosure page</a></div>
   </div>
   <div class="prose">
     <p>Texas law (Local Government Code chapter 176) requires a superintendent to disclose when a family member earns income from a District vendor. Public profiles indicate the superintendent's spouse has worked for this vendor since at least January 2025, while the District continued to pay it. As of October 8, 2026, the District's <a href="https://www.friscoisd.org/page/disclosures-conflict-of-interest" rel="noopener">posted conflict of interest disclosures</a> include no filing from the vendor or any District officer.</p>
@@ -355,6 +366,7 @@ button.btn:disabled{opacity:.6;cursor:default}
       <tr><td>One Source (three companies)</td><td class="n">$8,500</td><td class="n">about $4.2M</td></tr>
     </tbody>
   </table>
+  <div class="receipts"><a class="sm" href="/docs/2024-10-07_vote-for-frisco-isd-pac-30-day-report.pdf#page=9" target="_blank" rel="noopener">30-day report, pp. 9 to 12</a><a class="sm" href="/docs/2024-10-28_vote-for-frisco-isd-pac-8-day-report.pdf#page=8" target="_blank" rel="noopener">8-day report, pp. 8 to 11</a><a class="sm" href="/docs/2025-01-15_vote-for-frisco-isd-pac-january-2025-report.pdf#page=5" target="_blank" rel="noopener">January 2025 report, p. 5</a></div>
   </div>
   <div class="prose">
     <p>Other large donors included EMA Engineering ($20,000) and, at $10,000 each, Century Mechanical, Foodservice Design Professionals, Piper Weatherford, RLK Engineering, and FC Dallas. The committee is still active, with <strong>$27,087</strong> on hand as of its latest report.</p>
@@ -372,6 +384,7 @@ button.btn:disabled{opacity:.6;cursor:default}
       <tr><td>All other</td><td>Signs, T-shirts, event food</td><td class="n">about $2,100</td></tr>
     </tbody>
   </table>
+  <div class="receipts"><a class="sm" href="/docs/2024-10-07_vote-for-frisco-isd-pac-30-day-report.pdf#page=13" target="_blank" rel="noopener">30-day report, pp. 13 to 15</a><a class="sm" href="/docs/2024-10-28_vote-for-frisco-isd-pac-8-day-report.pdf#page=12" target="_blank" rel="noopener">8-day report, p. 12</a><a class="sm" href="/docs/2025-01-15_vote-for-frisco-isd-pac-january-2025-report.pdf#page=6" target="_blank" rel="noopener">January 2025 report, pp. 6 to 7</a></div>
   </div>
   <div class="prose">
     <p><a href="/data/vote-for-frisco-isd-business-contributions.csv">Download every business contribution (CSV)</a>. Contributions from individuals are not listed here; they are public at the Texas Ethics Commission.</p>
@@ -395,6 +408,7 @@ button.btn:disabled{opacity:.6;cursor:default}
       <tr><th>Change</th><th class="n up">up 14%</th><th class="n up">up 13%</th></tr>
     </tbody>
   </table>
+  <div class="receipts"><a class="sm" href="/docs/2026-06_frisco-isd-2026-27-official-budget-book.pdf#page=26" target="_blank" rel="noopener">Budget Book, 2023-24 (PDF p. 26)</a><a class="sm" href="/docs/2026-06_frisco-isd-2026-27-official-budget-book.pdf#page=101" target="_blank" rel="noopener">2024-25 to 2026-27 (PDF p. 101)</a></div>
   </div>
   <div class="facts">
     <div class="fact"><b>65,825</b><span>students, fall 2021</span></div>
@@ -415,6 +429,7 @@ button.btn:disabled{opacity:.6;cursor:default}
     <div class="fact"><b>$0</b><span>budgeted General Fund surplus, 2026-27</span></div>
   </div>
   <p class="src">Source: Frisco ISD 2026-27 adopted budget, General Fund summary.</p>
+  <div class="receipts"><a class="sm" href="/docs/2026-06_frisco-isd-2026-27-official-budget-book.pdf#page=24" target="_blank" rel="noopener">Budget Book, budget by function and object (PDF p. 24)</a></div>
 </section>
 
 <section id="peers">
