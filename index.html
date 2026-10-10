@@ -646,8 +646,8 @@ button.btn:disabled{opacity:.6;cursor:default}
     bars.forEach(function(b,i){b.set(i>=8?195.3:b.v)});
     drop.forEach(function(b){if(b.label){b.label.style.transition="none";b.label.style.opacity=0}});
     ghost.style.transition="none"; ghost.style.opacity=0;
-    var start=700,gap=420,dur=800;
-    var ease=function(p){var s=1.4;p=p-1;return p*p*((s+1)*p+s)+1};
+    var start=still?400:700,gap=still?260:420,dur=still?480:800;
+    var ease=still?function(p){return 1-Math.pow(1-p,3)}:function(p){var s=1.4;p=p-1;return p*p*((s+1)*p+s)+1};
     drop.forEach(function(b,k){
       timers.push(setTimeout(function(){
         var t0=performance.now();
@@ -660,7 +660,7 @@ button.btn:disabled{opacity:.6;cursor:default}
   }
   var rp=document.getElementById("replay");
   if(rp) rp.addEventListener("click",function(){running=false;play()});
-  if(still||!("IntersectionObserver" in window)){ if(still){finish()} else {play()} }
+  if(!("IntersectionObserver" in window)){ play() }
   else{
     bars.forEach(function(b,i){b.set(i>=8?195.3:b.v)}); drop.forEach(function(b){if(b.label)b.label.style.opacity=0}); ghost.style.opacity=0;
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play()}})},{threshold:0.45});
