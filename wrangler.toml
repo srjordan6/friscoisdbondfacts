@@ -4,6 +4,10 @@ compatibility_date = "2026-01-01"
 
 [vars]
 CF_ACCOUNT_ID = "2db97ad8218dd8a17d22368d32e41161"
+# Cloudflare Access gate for /admin and /api/admin (app "friscoisdbondfacts.com" in Cloudflare One)
+ACCESS_TEAM = "old-bread-48be.cloudflareaccess.com"
+ACCESS_AUD = "900eac225696dff325a0dcc816297de869c4be8c0f866aba606f1426e5bccfee"
+ADMIN_EMAILS = "srjordan@gmail.com"
 
 [[d1_databases]]
 binding = "DB"
