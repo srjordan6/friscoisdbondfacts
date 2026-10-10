@@ -1,0 +1,8 @@
+name = "friscoisdbondfacts-site"
+pages_build_output_dir = "."
+compatibility_date = "2026-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "friscoisdbondfacts-signups"
+database_id = "9a31d4ae-3599-41b3-86f0-5f9067fc10de"
