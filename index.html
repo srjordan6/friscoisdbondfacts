@@ -3,15 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Frisco ISD Bond Facts</title>
-<meta name="description" content="Frisco ISD's own numbers on debt, enrollment, and repairs, before the 2027 bond vote.">
+<title>Frisco ISD Bond Facts: the District's own numbers before the 2027 bond vote</title>
+<meta name="description" content="Frisco ISD's old bonds start paying off in 2034. A new bond can keep your tax rate from ever coming down. Debt, spending, and campaign money, sourced to the District's own documents.">
+<link rel="canonical" href="https://friscoisdbondfacts.com/">
+<meta name="theme-color" content="#101A27">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Frisco ISD Bond Facts">
+<meta property="og:url" content="https://friscoisdbondfacts.com/">
+<meta property="og:title" content="Frisco ISD's old bonds start paying off in 2034. A new bond can keep your tax rate from ever coming down.">
+<meta property="og:description" content="The District's own numbers on debt, spending, and who paid for the 2024 bond campaign. Check every figure yourself before the 2027 vote.">
+<meta property="og:image" content="https://friscoisdbondfacts.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Chart of Frisco ISD debt payments held flat at about $195 million a year through 2033, then falling to $41 million by 2042.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frisco ISD's old bonds start paying off in 2034.">
+<meta name="twitter:description" content="A new bond can keep your tax rate from ever coming down. The District's own numbers, sourced and downloadable.">
+<meta name="twitter:image" content="https://friscoisdbondfacts.com/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Frisco ISD Bond Facts","url":"https://friscoisdbondfacts.com/","description":"Frisco ISD debt, spending, and bond campaign records, sourced to public documents, before the 2027 bond vote.","publisher":{"@type":"Person","name":"Stephen Jordan"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F4F3EF; --paper:#FFFFFF; --ink:#101A27; --muted:#5B6874;
-  --rule:#D9DDD9; --teal:#2C6E85; --brick:#C2492F; --coral:#EB7256; --sky:#A8D8EE; --ghost:#8FB3C4;
+  --rule:#D9DDD9; --teal:#2C6E85; --brick:#AE3E26; --coral:#EB7256; --sky:#A8D8EE; --ghost:#8FB3C4;
   --navy:#101A27; --head:"Manrope","DM Sans",system-ui,sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
@@ -89,6 +106,8 @@ table{border-collapse:collapse;width:100%;font-size:16px;margin:20px 0}
 th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule)}
 th{font-weight:600;color:var(--muted);font-size:14px}
 td.n,th.n{text-align:right}
+.skip{position:absolute;left:-9999px;top:8px;z-index:10;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:6px;font-weight:700}
+.skip:focus{left:12px}
 .receipts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
 .takeaway{font-family:var(--head);font-weight:700;font-size:18px;line-height:1.35;letter-spacing:-.015em;color:var(--ink);margin:30px 0 0;padding-left:12px;border-left:3px solid var(--coral);max-width:62ch}
 footer .legal a{margin-right:16px;display:inline-block}
@@ -171,6 +190,7 @@ button.btn:disabled{opacity:.6;cursor:default}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div class="wrap">
 <header class="top">
   <a class="brand" href="#">Frisco ISD Bond Facts</a>
@@ -178,6 +198,7 @@ button.btn:disabled{opacity:.6;cursor:default}
     <a href="#numbers">Numbers</a><a href="#debt">The debt</a><a href="#room">Making room</a><a href="#disclosure">Disclosure</a><a href="#pac">Bond PAC</a><a href="#students">Students</a><a href="#repairs">Repairs</a><a href="#peers">Peers</a><a href="#committee">Committee</a><a href="#data">Data</a><a href="#sources">Sources</a><a href="/documents.html">Documents</a>
   </nav>
 </header>
+<main id="main">
 
 <div class="hero">
   <div class="hero-copy">
@@ -190,8 +211,8 @@ button.btn:disabled{opacity:.6;cursor:default}
     </div>
   </div>
   <div class="hero-visual">
-  <div class="chart" role="img" aria-label="Annual debt service on existing Frisco ISD bonds, about 195 million dollars a year through 2033, falling to 41 million dollars by 2042. A dashed outline shows payments held flat if new debt fills the gap.">
-    <svg id="ds" viewBox="0 0 900 380" aria-hidden="true"></svg>
+  <div class="chart">
+    <svg id="ds" viewBox="0 0 900 380" role="img" aria-label="Annual debt service on existing Frisco ISD bonds, about 195 million dollars a year through 2033, falling to 41 million dollars by 2042. A dashed outline shows payments held flat if new debt fills the gap."></svg>
     <div class="legend">
       <span><i class="key" style="background:var(--coral)"></i>Payments on existing bonds, selected years</span>
       <span><i class="key" style="background:transparent;border:2px dashed var(--sky)"></i>If new debt fills the space (illustration, not a District projection)</span>
@@ -551,6 +572,7 @@ button.btn:disabled{opacity:.6;cursor:default}
   </ol>
 </section>
 
+</main>
 <footer>
   <div class="disclose">Political advertising paid for by Stephen Jordan, Frisco, Texas.</div>
   <p>Not affiliated with or endorsed by Frisco ISD. Figures are taken from public District documents listed above. Corrections are welcome and will be posted.</p>
