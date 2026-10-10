@@ -530,7 +530,7 @@ button.btn:disabled{opacity:.6;cursor:default}
         <input id="su-zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="ZIP (optional)" maxlength="10">
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="source" value="join">
-        <div id="ts" class="cf-ts" data-sitekey=""></div>
+        <div id="ts" class="cf-ts" data-sitekey="0x4AAAAAAD2p0HeQdgGtSDiB"></div>
         <button class="btn" type="submit">Send me updates</button>
         <p class="formmsg" role="status" aria-live="polite"></p>
       </form>
@@ -739,7 +739,7 @@ button.btn:disabled{opacity:.6;cursor:default}
   var tsBox=document.getElementById('ts'), tsKey=tsBox&&tsBox.getAttribute('data-sitekey'), tsId=null, tsToken='';
   if(tsKey){
     window.onTsLoad=function(){tsId=turnstile.render(tsBox,{sitekey:tsKey,appearance:'interaction-only',size:'flexible',action:'signup',
-      callback:function(t){tsToken=t},'expired-callback':function(){tsToken=''},'error-callback':function(){tsToken=''}})};
+      callback:function(t){tsToken=t},'expired-callback':function(){tsToken=''},'error-callback':function(c){tsToken='';window.tsErr=c}})};
     var s=document.createElement('script');s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTsLoad&render=explicit';s.async=true;s.defer=true;document.head.appendChild(s);
   }
   f.addEventListener('submit',function(e){
