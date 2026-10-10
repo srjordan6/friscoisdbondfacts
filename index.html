@@ -63,6 +63,8 @@ nav a:hover{color:var(--ink)}
   padding:22px 22px 14px;margin:34px 0 10px;overflow-x:auto}
 .hero .chart{background:#FFFFFF08;border-color:#FFFFFF1F;margin:0;perspective:1100px}
 .hero .legend{color:#C4CCD1}
+.replay{font:inherit;font-size:13px;font-weight:700;color:var(--sky);background:transparent;border:1px solid #A8D8EE55;border-radius:99px;padding:4px 12px;cursor:pointer}
+.replay:hover{background:#A8D8EE1A}
 #ds{transition:transform .5s ease;transform-origin:50% 60%}
 @media (prefers-reduced-motion:reduce){#ds{transition:none}}
 .chart svg{display:block;width:100%;height:auto}
@@ -193,6 +195,7 @@ button.btn:disabled{opacity:.6;cursor:default}
     <div class="legend">
       <span><i class="key" style="background:var(--coral)"></i>Payments on existing bonds, selected years</span>
       <span><i class="key" style="background:transparent;border:2px dashed var(--sky)"></i>If new debt fills the space (illustration, not a District projection)</span>
+      <button type="button" id="replay" class="replay">&#8635; Replay</button>
     </div>
   </div>
   <p class="cap">Annual debt service in millions of dollars. Source: Frisco ISD Series 2026 Official Statement, Appendix A.</p>
@@ -635,23 +638,33 @@ button.btn:disabled{opacity:.6;cursor:default}
   svg.appendChild(labels);
   // Entrance: every bar starts at the $195M level, then the post-2033 bars drop one at a time.
   var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var drop=bars.slice(8);
-  if(still){bars.forEach(function(b){b.set(b.v)});}
-  else{
+  var drop=bars.slice(8), timers=[], running=false;
+  function finish(){bars.forEach(function(b){b.set(b.v);if(b.label){b.label.style.opacity=1}});ghost.style.opacity=1;}
+  function play(){
+    if(running) return; running=true;
+    timers.forEach(clearTimeout); timers=[];
     bars.forEach(function(b,i){b.set(i>=8?195.3:b.v)});
-    drop.forEach(function(b){if(b.label)b.label.style.opacity=0});
-    ghost.style.opacity=0;
-    var start=800,gap=420,dur=800;
+    drop.forEach(function(b){if(b.label){b.label.style.transition="none";b.label.style.opacity=0}});
+    ghost.style.transition="none"; ghost.style.opacity=0;
+    var start=700,gap=420,dur=800;
     var ease=function(p){var s=1.4;p=p-1;return p*p*((s+1)*p+s)+1};
     drop.forEach(function(b,k){
-      setTimeout(function(){
+      timers.push(setTimeout(function(){
         var t0=performance.now();
-        (function step(now){var p=Math.min(1,(now-t0)/dur);b.set(195.3+(b.v-195.3)*ease(p));
+        (function step(now){var p=Math.min(1,Math.max(0,(now-t0)/dur));b.set(195.3+(b.v-195.3)*ease(p));
           if(p<1){requestAnimationFrame(step)}else{b.set(b.v);if(b.label){b.label.style.transition="opacity .35s ease";b.label.style.opacity=1}}
         })(t0);
-      },start+k*gap);
+      },start+k*gap));
     });
-    setTimeout(function(){ghost.style.transition="opacity .7s ease";ghost.style.opacity=1},start+(drop.length-1)*gap+dur);
+    timers.push(setTimeout(function(){ghost.style.transition="opacity .7s ease";ghost.style.opacity=1;running=false},start+(drop.length-1)*gap+dur));
+  }
+  var rp=document.getElementById("replay");
+  if(rp) rp.addEventListener("click",function(){running=false;play()});
+  if(still||!("IntersectionObserver" in window)){ if(still){finish()} else {play()} }
+  else{
+    bars.forEach(function(b,i){b.set(i>=8?195.3:b.v)}); drop.forEach(function(b){if(b.label)b.label.style.opacity=0}); ghost.style.opacity=0;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();play()}})},{threshold:0.45});
+    io.observe(box);
   }
   var fine=window.matchMedia&&matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(fine){
