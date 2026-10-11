@@ -206,6 +206,14 @@ button.btn:disabled{opacity:.6;cursor:default}
   .calc{grid-template-columns:1fr;padding:20px}
   .budget{padding:20px}
 }
+/* Rally band at the hero/content seam */
+.rally{text-align:center;border-top:3px solid var(--coral);padding:60px 0}
+.rally h2{font-family:var(--head);font-weight:800;font-size:clamp(26px,3.4vw,38px);line-height:1.12;letter-spacing:-.03em;margin:0 auto 24px;max-width:22ch}
+.rally ol{list-style:none;counter-reset:ra;max-width:60ch;margin:0 auto;padding:0;text-align:left}
+.rally ol li{counter-increment:ra;position:relative;padding:4px 0 4px 54px;margin:0 0 16px;font-size:clamp(17px,1.9vw,20px);line-height:1.5;font-weight:600}
+.rally ol li::before{content:counter(ra);position:absolute;left:0;top:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--coral);color:#1B2024;font-family:var(--head);font-weight:800;font-size:16px;border-radius:99px}
+.rally ol li:last-child{font-weight:700}
+@media (max-width:560px){.rally ol li{padding-left:46px}}
 </style>
 </head>
 <body>
@@ -245,6 +253,16 @@ button.btn:disabled{opacity:.6;cursor:default}
   <div class="receipts"><a class="sm" href="https://emma.msrb.org/IssueView/Details/P2444051" target="_blank" rel="noopener">Official statement on EMMA</a></div>
   </div>
 </div>
+
+<section class="rally" aria-label="Why this matters">
+  <h2>This is our money, and these are our kids.</h2>
+  <ol>
+    <li>The District already had the funds to cover last year's budget.</li>
+    <li>They asked us for more anyway.</li>
+    <li>The year still closed in a surplus.</li>
+    <li>We are not against our schools. We are against being asked to trust numbers we were never allowed to see. Look at them for yourself, add your name, and help us hold the line.</li>
+  </ol>
+</section>
 
 <section id="numbers">
   <div class="prose">
