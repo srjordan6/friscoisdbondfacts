@@ -1,0 +1,67 @@
+:root{
+  --bg:#F4F3EF; --paper:#FFFFFF; --ink:#101A27; --muted:#5B6874;
+  --rule:#D9DDD9; --teal:#2C6E85; --brick:#C2492F; --ghost:#8FB3C4;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A21; --paper:#18232C; --ink:#E6ECF0; --muted:#A3AFB8;
+    --rule:#2C3A45; --teal:#5BB3BC; --brick:#E07A66; --ghost:#6B7882;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A21; --paper:#18232C; --ink:#E6ECF0; --muted:#A3AFB8;
+  --rule:#2C3A45; --teal:#5BB3BC; --brick:#E07A66; --ghost:#6B7882;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.65 "DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-variant-numeric:tabular-nums}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.prose{max-width:68ch}
+header.top{display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  padding:18px 0 14px;border-bottom:1px solid var(--rule)}
+.brand{font-family:"Manrope",sans-serif;font-weight:800;font-size:16px;letter-spacing:.03em;color:var(--ink);text-decoration:none;white-space:nowrap;flex-shrink:0;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 20px}
+nav a{color:var(--muted);text-decoration:none;font-size:15px;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+@media (max-width:720px){nav{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}nav::-webkit-scrollbar{display:none}}
+@media (max-width:600px){nav{flex-wrap:wrap;overflow-x:visible;gap:6px 14px}nav a{font-size:14px}}
+.menu-btn,.nav-head{display:none}
+@media (max-width:720px){
+  header.top{flex-direction:row;align-items:center;justify-content:space-between}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:44px;height:44px;padding:0 12px;border:1px solid var(--rule);border-radius:99px;background:var(--paper);color:var(--ink);font:700 14px "Manrope","DM Sans",system-ui,sans-serif;cursor:pointer}
+  .menu-btn svg{width:20px;height:20px}
+  nav#site-nav{display:none;position:fixed;inset:0;z-index:50;background:#101A27;flex-direction:column;flex-wrap:nowrap;gap:0;width:auto;margin:0;padding:max(14px,env(safe-area-inset-top)) 22px 32px;overflow-y:auto}
+  nav#site-nav.open{display:flex}
+  nav#site-nav .nav-head{display:flex;justify-content:space-between;align-items:center;padding:4px 0 10px;border-bottom:1px solid #ffffff2e;margin-bottom:6px}
+  nav#site-nav .nav-head span{font:800 13px "Manrope",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#A8D8EE}
+  nav#site-nav .nav-close{width:44px;height:44px;border:1px solid #ffffff40;border-radius:99px;background:transparent;color:#F2F1EC;font-size:26px;line-height:1;cursor:pointer}
+  nav#site-nav a{color:#F2F1EC;font:700 21px "Manrope",system-ui,sans-serif;padding:13px 2px;border-bottom:1px solid #ffffff1a;white-space:normal}
+  nav#site-nav a:hover,nav#site-nav a:focus-visible{color:#EB7256}
+  body.menu-open{overflow:hidden}
+}
+section{padding:52px 0;border-top:1px solid var(--rule)}
+section:first-child{border-top:0}
+section h2,.doch1{font-family:"Manrope",sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);
+  line-height:1.08;margin:0 0 16px;letter-spacing:-.04em}
+h3{font-family:"Manrope",sans-serif;font-weight:700;font-size:20px;margin:30px 0 4px}
+.meta{color:var(--muted);font-size:15px;margin:-6px 0 22px}
+.note{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--teal);border-radius:6px;padding:14px 18px;font-size:15px;color:var(--muted);max-width:68ch}
+.src{font-size:14px;color:var(--muted);margin-top:14px}
+table{border-collapse:collapse;width:100%;font-size:16px;margin:12px 0 20px}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:14px}
+td.n,th.n{text-align:right;white-space:nowrap}
+td.item{white-space:nowrap;color:var(--muted);font-size:15px}
+.tablewrap{overflow-x:auto}
+.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;
+  padding:12px 20px;border-radius:4px;margin:8px 10px 0 0}
+footer{border-top:1px solid var(--rule);padding:28px 0 40px;font-size:14px;color:var(--muted)}
+.disclose{border:1px solid var(--ink);color:var(--ink);display:inline-block;padding:8px 12px;font-weight:600;margin-bottom:12px}
