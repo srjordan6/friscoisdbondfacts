@@ -109,6 +109,7 @@ section h2{font-family:var(--head);font-weight:700;font-size:clamp(28px,3.6vw,42
   line-height:1.08;margin:0 0 16px;letter-spacing:-.04em}
 section>.prose:first-child>h2{counter-increment:ch}
 section>.prose:first-child>h2::before{content:counter(ch,decimal-leading-zero);display:block;font-family:"DM Sans",sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--teal);margin:0 0 12px}
+#my-plan>.prose>h2{counter-increment:none}#my-plan>.prose>h2::before{content:none}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;
   margin:26px 0 8px;border-top:2px solid var(--ink)}
 .fact{padding:16px 18px 16px 0;border-bottom:1px solid var(--rule)}
@@ -225,10 +226,40 @@ button.btn:disabled{opacity:.6;cursor:default}
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Menu</button>
   <nav id="site-nav" aria-label="Sections">
     <div class="nav-head"><span>Sections</span><button class="nav-close" type="button" aria-label="Close menu">&times;</button></div>
-    <a href="#the-ask">The 2027 ask</a><a href="#sustainability">Empty seats</a><a href="#numbers">Numbers</a><a href="#debt">The debt</a><a href="#room">Making room</a><a href="#they-knew">April 2024</a><a href="#bond-scorecard">Bond scorecard</a><a href="#enrollment">Enrollment</a><a href="#nov16">Nov 16 meeting</a><a href="#reserves">Reserves</a><a href="#disclosure">Disclosure</a><a href="#pac">Bond PAC</a><a href="#students">Students</a><a href="#repairs">Repairs</a><a href="#peers">Peers</a><a href="#committee">Committee</a><a href="#data">Data</a><a href="#sources">Sources</a><a href="/meetings">Meetings</a><a href="/documents">Documents</a>
+    <a href="#my-plan">My plan</a><a href="#the-ask">The 2027 ask</a><a href="#sustainability">Empty seats</a><a href="#numbers">Numbers</a><a href="#debt">The debt</a><a href="#room">Making room</a><a href="#they-knew">April 2024</a><a href="#bond-scorecard">Bond scorecard</a><a href="#enrollment">Enrollment</a><a href="#nov16">Nov 16 meeting</a><a href="#reserves">Reserves</a><a href="#disclosure">Disclosure</a><a href="#pac">Bond PAC</a><a href="#students">Students</a><a href="#repairs">Repairs</a><a href="#peers">Peers</a><a href="#committee">Committee</a><a href="#data">Data</a><a href="#sources">Sources</a><a href="/meetings">Meetings</a><a href="/documents">Documents</a>
   </nav>
 </header>
 <main id="main">
+
+<section id="my-plan" class="opinion" aria-label="Opinion by Stephen Jordan" style="border-top:0;padding:36px 0 44px">
+  <div class="prose">
+    <p class="eyebrow" style="color:var(--coral);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;margin:0 0 8px">Opinion &middot; November 18, 2026</p>
+    <h2 style="margin-top:0">Not now, not this big, not for laptops. Here is a bond plan I could support.</h2>
+    <p>The District's committee is building a $1.03 billion bond for May 2027. I oppose it. But voters deserve more than a no, so here is what I believe a responsible bond would look like.</p>
+    <ol>
+      <li><strong>Wait for the Legislature.</strong> The Texas Legislature meets in January 2027 for 140 days and will decide how much the state gives school districts. The board is set to decide in February whether to call a May election, before anyone knows those numbers. The earliest sensible bond election is November 2027.</li>
+      <li><strong>Earn back voters' trust first.</strong> The 2024 bond and the 2024 tax increase both failed. The District owes voters a better plan, not a faster one, starting with an independent review of how the 2018 bond money was spent.</li>
+      <li><strong>Cap the bond at $400 million, with no increase in the debt tax rate.</strong> That is less than 40% of the current package.</li>
+      <li><strong>No bonds for short life items.</strong> Borrowing for 20 to 30 years to buy laptops that last five makes no sense. Technology, buses, equipment, and the "30 Year Refresh" belong in the regular budget.</li>
+      <li><strong>Publish a project list for every school before the board votes.</strong> Every family should be able to see exactly what its school gets and what it costs.</li>
+    </ol>
+    <h3 style="font-family:var(--head);margin:28px 0 6px">The District's own model says it works</h3>
+    <p>I ran the District's committee planning model with only the lifecycle replacements, the roofs, HVAC, plumbing and other building systems, and left out technology, the 30 Year Refresh, buses, vehicles and equipment.</p>
+    <div style="overflow-x:auto"><table>
+      <thead><tr><th>Package</th><th class="n">Size</th><th class="n">Peak debt tax rate</th><th class="n">Median home, per year</th></tr></thead>
+      <tbody>
+        <tr><td>District's full package, 5 years</td><td class="n">$1,026.9M</td><td class="n">36.06&cent; (FY2033)</td><td class="n">+$447</td></tr>
+        <tr><td>Lifecycle replacements only, 5 years</td><td class="n">$607.5M</td><td class="n">28.97&cent; (FY2036)</td><td class="n">+$97</td></tr>
+        <tr><td><strong>Lifecycle replacements only, first 3 years</strong></td><td class="n"><strong>$412.0M</strong></td><td class="n"><strong>27.00&cent;</strong></td><td class="n"><strong>$0</strong></td></tr>
+        <tr><td>Lifecycle, District's reduced scope, 4 years</td><td class="n">$358.5M</td><td class="n">27.00&cent;</td><td class="n">$0</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">Results from the District's 2027 Bond Planning Model (posted November 10, 2026) with only the line items changed; all District assumptions kept, including a 5% interest rate and debt matched to asset life. Unchanged, the model reproduces the District's own 36.06&cent; peak. The $412M option keeps HVAC; the District's reduced scope options remove HVAC replacements. Median home is $492,982 taxable value, the model's own figure.</p>
+    <p>To be straight with you: holding the rate at 27&cent; is not free. With no new bond, the District's model shows the needed debt tax rate falling to about 24.5&cent; by 2030. A $400 million bond means that drop does not happen. That is a real cost, and voters should weigh it with open eyes. But it is far smaller than what the District is asking for now.</p>
+    <p class="takeaway">A bond should fix buildings, not buy laptops on a 30 year loan. Wait for the state, shrink it to $400 million, and show every school's list first.</p>
+    <p style="margin-top:22px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:18px">Stephen Jordan<br><span style="font-family:inherit;font-style:normal;font-size:15px;color:var(--muted)">Frisco, Texas. This is my personal opinion.</span></p>
+  </div>
+</section>
 
 <div class="hero">
   <div class="hero-copy">
