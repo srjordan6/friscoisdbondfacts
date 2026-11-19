@@ -42,3 +42,7 @@
   Referrer-Policy: no-referrer
   X-Robots-Tag: noindex
   Cache-Control: no-store
+
+/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+  Cache-Control: public, max-age=1800
