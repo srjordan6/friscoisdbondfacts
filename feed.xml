@@ -6,8 +6,16 @@
     <atom:link href="https://friscoisdbondfacts.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Updates on the Frisco ISD 2027 bond, District spending, trustee votes and public records, using the District's own numbers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Nov 2026 12:00:00 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 22:00:00 -0600</lastBuildDate>
     <ttl>360</ttl>
+    <item>
+      <title>District announces the $412.6 million recommendation, with no tax rate projection</title>
+      <link>https://friscoisdbondfacts.com/#the-ask</link>
+      <guid isPermaLink="false">https://friscoisdbondfacts.com/feed/202611192200</guid>
+      <pubDate>Thu, 19 Nov 2026 22:00:00 -0600</pubDate>
+      <category>the bond</category>
+      <description>Frisco ISD says 91% of the 83 committee members present approved the three year package. The committee votes again January 19, 2027, after a community survey, and the Board receives it in February. The announcement does not mention tax rates; the District's own model shows a 29.92 cent peak in FY2033.</description>
+    </item>
     <item>
       <title>Opinion: A bond plan I could support</title>
       <link>https://friscoisdbondfacts.com/#my-plan</link>
