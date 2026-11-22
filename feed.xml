@@ -6,8 +6,16 @@
     <atom:link href="https://friscoisdbondfacts.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Updates on the Frisco ISD 2027 bond, District spending, trustee votes and public records, using the District's own numbers.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Nov 2026 22:00:00 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 13:30:00 -0600</lastBuildDate>
     <ttl>360</ttl>
+    <item>
+      <title>Frisco ISD still owes $149 million in interest on $21 million of old capital appreciation bonds</title>
+      <link>https://friscoisdbondfacts.com/#cabs</link>
+      <guid isPermaLink="false">https://friscoisdbondfacts.com/feed/202611221330</guid>
+      <pubDate>Sun, 22 Nov 2026 13:30:00 -0600</pubDate>
+      <category>the debt</category>
+      <description>State Bond Review Board data show $169.6 million in CAB payments still owed as of August 31, 2025. None of Frisco ISD's eight closest peers has any CABs.</description>
+    </item>
     <item>
       <title>District announces the $412.6 million recommendation, with no tax rate projection</title>
       <link>https://friscoisdbondfacts.com/#the-ask</link>
