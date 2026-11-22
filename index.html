@@ -93,6 +93,7 @@ nav a:hover{color:var(--ink)}
 .brand-h{margin:0;font-size:inherit;line-height:inherit;font-weight:inherit;flex-shrink:0}
 .hero .headline{font-family:var(--head);font-weight:600;
   font-size:clamp(36px,4.3vw,52px);line-height:1.03;letter-spacing:-.045em;margin:0 0 20px}
+.hero .headline h2,.hero .headline p{display:inline;font:inherit;letter-spacing:inherit;margin:0;color:inherit}
 .hero .headline em{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-style:italic;color:var(--sky);letter-spacing:-.02em}
 .hero p.lede{font-size:17px;color:#C4CCD1;max-width:48ch;margin:0}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
@@ -281,7 +282,7 @@ if(r==='sherrieforfisd.com'||r==='sherrie4fisd.com'){document.getElementById('th
 <div class="hero">
   <div class="hero-copy">
     <p class="eyebrow">Before the 2027 bond vote</p>
-    <h2 class="headline">Frisco ISD's old bonds start paying off in 2034. <em>A new bond can keep your tax rate from ever coming down.</em></h2>
+    <div class="headline"><h2>Frisco ISD's old bonds start paying off in 2034.</h2> <p><em>A new bond can keep your tax rate from ever coming down.</em></p></div>
     <p class="lede">Every number on this site comes from the District's own budgets and bond filings. Read them, check them, and ask the District to show its math.</p>
     <div class="actions">
       <a class="btn" href="#numbers">See the numbers &darr;</a>
