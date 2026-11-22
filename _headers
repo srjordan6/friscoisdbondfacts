@@ -43,7 +43,7 @@
 
 /feed.xml
   Content-Security-Policy: default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'
-  Content-Type: application/rss+xml; charset=utf-8
+  Content-Type: application/xml; charset=utf-8
   Cache-Control: public, max-age=1800
 
 /votes
