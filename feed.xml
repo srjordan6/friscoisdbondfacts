@@ -6,8 +6,16 @@
     <atom:link href="https://friscoisdbondfacts.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Updates on the Frisco ISD 2027 bond, District spending, trustee votes and public records, using the District's own numbers.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Nov 2026 13:30:00 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 15:45:00 -0600</lastBuildDate>
     <ttl>360</ttl>
+    <item>
+      <title>2018 bond, line by line: new buildings ran about $60 million over, maintenance $27 million under</title>
+      <link>https://friscoisdbondfacts.com/#bond-scorecard</link>
+      <guid isPermaLink="false">https://friscoisdbondfacts.com/feed/202611231545</guid>
+      <pubDate>Mon, 23 Nov 2026 15:45:00 -0600</pubDate>
+      <category>the bond</category>
+      <description>The District's quarterly capital plan shows the arts center, Wilkinson, Panther Creek, Wortham and other new facilities about $60 million over budget, general maintenance funded at $82.9 million against $110 million promised, and $47.2 million of projects on hold.</description>
+    </item>
     <item>
       <title>Frisco ISD still owes $149 million in interest on $21 million of old capital appreciation bonds</title>
       <link>https://friscoisdbondfacts.com/#cabs</link>
