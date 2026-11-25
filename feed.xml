@@ -6,8 +6,16 @@
     <atom:link href="https://friscoisdbondfacts.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Updates on the Frisco ISD 2027 bond, District spending, trustee votes and public records, using the District's own numbers.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Nov 2026 15:45:00 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 14:00:00 -0600</lastBuildDate>
     <ttl>360</ttl>
+    <item>
+      <title>Every trustee vote for 13 months: 112 of 121 unanimous, and no vote against a budget, tax rate or contract</title>
+      <link>https://friscoisdbondfacts.com/votes</link>
+      <guid isPermaLink="false">https://friscoisdbondfacts.com/feed/202611251400</guid>
+      <pubDate>Wed, 25 Nov 2026 14:00:00 -0600</pubDate>
+      <category>votes</category>
+      <description>The votes page now covers every vote in the Board's signed minutes from October 20, 2025 through October 27, 2026, by trustee. Maddox, Salas and Davis never voted no.</description>
+    </item>
     <item>
       <title>2018 bond, line by line: new buildings ran about $60 million over, maintenance $27 million under</title>
       <link>https://friscoisdbondfacts.com/#bond-scorecard</link>
