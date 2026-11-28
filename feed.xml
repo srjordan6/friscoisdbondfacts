@@ -6,8 +6,16 @@
     <atom:link href="https://friscoisdbondfacts.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Updates on the Frisco ISD 2027 bond, District spending, trustee votes and public records, using the District's own numbers.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Nov 2026 14:00:00 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 21:30:00 -0600</lastBuildDate>
     <ttl>360</ttl>
+    <item>
+      <title>What each trustee promised voters, next to how they voted</title>
+      <link>https://friscoisdbondfacts.com/promises</link>
+      <guid isPermaLink="false">https://friscoisdbondfacts.com/feed/202611272130</guid>
+      <pubDate>Fri, 27 Nov 2026 21:30:00 -0600</pubDate>
+      <category>votes</category>
+      <description>Campaign commitments from public voter guides, in the trustees' own words, beside 13 months of recorded votes. No trustee voted against a budget, a tax rate, a contract or a purchase.</description>
+    </item>
     <item>
       <title>Every trustee vote for 13 months: 112 of 121 unanimous, and no vote against a budget, tax rate or contract</title>
       <link>https://friscoisdbondfacts.com/votes</link>
